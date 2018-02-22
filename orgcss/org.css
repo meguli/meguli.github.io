@@ -135,15 +135,14 @@ html{font-family:sans-serif;line-height:1.15;-ms-text-size-adjust:100%;-webkit-t
     background-color: #f9f9f9;
     width: 160px;
 }
-.masthead img.avatar {
+.avatar img {
     position: relative;
-    float: right;
-    margin-top: -100px;
-    margin-bottom: 1em;
+    float: left;
+    margin-bottom: 15em;
     margin-right: 10%;
     width: 200px;
     background-color: #fff;
-	border-radius: 40%;
+	border-radius: 50%;
 }
 /* post */
 .post {

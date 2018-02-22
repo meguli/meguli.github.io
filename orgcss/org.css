@@ -71,3 +71,44 @@ html{font-family:sans-serif;line-height:1.15;-ms-text-size-adjust:100%;-webkit-t
     font-weight: bold;
     font-style: normal;
 }
+
+/* For searchform in the main page */
+#searchform {
+    position: absolute;
+    top: 54px;
+    right: 30.4%;
+}
+#searchform #s {
+    background: url("/media/img/search.png") no-repeat 5px 6px;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,0.1);
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    -moz-border-radius: 2px;
+    width: 90px;
+    height: 30px;
+    line-height: 12px;
+    padding: 4px 10px 4px 28px;
+
+    -webkit-transition-duration: 400ms;
+    -webkit-transition-property: width, background;
+    -webkit-transition-timing-function: ease;
+    -moz-transition-duration: 400ms;
+    -moz-transition-property: width, background;
+    -moz-transition-timing-function: ease;
+    -o-transition-duration: 400ms;
+    -o-transition-property: width, background;
+    -o-transition-timing-function: ease;
+}
+#searchform #s:focus {
+    background-color: #f9f9f9;
+    width: 160px;
+}
+.masthead img.avatar {
+    position: relative;
+    float: right;
+    margin-top: -100px;
+    margin-bottom: -100%;
+    margin-right: 10%;
+    width: 200px;
+    background-color: #fff;
+}

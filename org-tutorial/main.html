@@ -3,11 +3,12 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-02-23 Fri 00:49 -->
+<!-- 2018-02-22 Thu 23:54 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>&lrm;</title>
+<title>How I Use Emacs org-mode</title>
 <meta name="generator" content="Org mode" />
+<meta name="author" content="Burak Kaan Copur" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
   .title  { text-align: center;
@@ -179,6 +180,79 @@
   .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
+<link rel="stylesheet" type="text/css" href="../orgcss/org.css"/>
+
+<script type="text/javascript" src="https://orgmode.org/org-info.js">
+/**
+ *
+ * @source: https://orgmode.org/org-info.js
+ *
+ * @licstart  The following is the entire license notice for the
+ *  JavaScript code in https://orgmode.org/org-info.js.
+ *
+ * Copyright (C) 2012-2018 Free Software Foundation, Inc.
+ *
+ *
+ * The JavaScript code in this tag is free software: you can
+ * redistribute it and/or modify it under the terms of the GNU
+ * General Public License (GNU GPL) as published by the Free Software
+ * Foundation, either version 3 of the License, or (at your option)
+ * any later version.  The code is distributed WITHOUT ANY WARRANTY;
+ * without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+ *
+ * As additional permission under GNU GPL version 3 section 7, you
+ * may distribute non-source (e.g., minimized or compacted) forms of
+ * that code without the copy of the GNU GPL normally required by
+ * section 4, provided you include this license notice and a URL
+ * through which recipients can access the Corresponding Source.
+ *
+ * @licend  The above is the entire license notice
+ * for the JavaScript code in https://orgmode.org/org-info.js.
+ *
+ */
+</script>
+
+<script type="text/javascript">
+
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+
+<!--/*--><![CDATA[/*><!--*/
+org_html_manager.set("TOC_DEPTH", "4");
+org_html_manager.set("LINK_HOME", "");
+org_html_manager.set("LINK_UP", "");
+org_html_manager.set("LOCAL_TOC", "0");
+org_html_manager.set("VIEW_BUTTONS", "0");
+org_html_manager.set("MOUSE_HINT", "underline");
+org_html_manager.set("FIXED_TOC", "0");
+org_html_manager.set("TOC", "1");
+org_html_manager.set("VIEW", "info");
+org_html_manager.setup();  // activate after the parameters are set
+/*]]>*///-->
+</script>
 <script type="text/javascript">
 /*
 @licstart  The following is the entire license notice for the
@@ -227,29 +301,300 @@ for the JavaScript code in this tag.
 </script>
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
+        displayAlign: "left",
+        displayIndent: "5em",
 
         "HTML-CSS": { scale: 100,
                         linebreaks: { automatic: "false" },
-                        webFont: "TeX"
+                        webFont: "Neo-Euler"
                        },
         SVG: {scale: 100,
               linebreaks: { automatic: "false" },
-              font: "TeX"},
+              font: "Neo-Euler"},
         NativeMML: {scale: 100},
         TeX: { equationNumbers: {autoNumber: "AMS"},
                MultLineWidth: "85%",
-               TagSide: "right",
+               TagSide: "left",
                TagIndent: ".8em"
              }
 });
 </script>
 <script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 </head>
 <body>
 <div id="content">
+<h1 class="title">How I Use Emacs org-mode</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org7b686b4">1. Initial Setup</a></li>
+<li><a href="#org8157013">2. How to Enrich the HTML Output?</a></li>
+<li><a href="#org8f96693">3. Theorems and Proofs</a></li>
+<li><a href="#orgd0013f8">4. Publishing to Github Pages</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org7b686b4" class="outline-2">
+<h2 id="org7b686b4"><span class="section-number-2">1</span> Initial Setup</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+For me, org-mode is a document creation system and is the only reason
+I keep using emacs. In this notes, I am going to explain how I use it
+to generate documents like this. And maybe in the future, I will also
+explain how I use it to create LaTeX documents.
+</p>
+
+<p>
+Assuming you have emacs installed, you already have org-mode since it
+comes bundled. The next step is making sure that you completed the
+tutorial given at the below link since we are going to focus on publishing
+our documents as a web page:
+</p>
+
+<p>
+<a href="https://orgmode.org/worg/org-tutorials/org-publish-html-tutorial.html">Publishing to HTML using org-mode</a> 
+</p>
+
+
+<p>
+Let me now explain each of the related headers at the beginning of the
+main org-mode file. In a project, I mainly call this file <i>main.org</i>. 
+</p>
+
+<pre class="example">
+#+TITLE:     How I Use Emacs org-mode
+#+AUTHOR:    Burak Kaan \Ccedil opur
+#+LANGUAGE:  en
+</pre>
+
+<p>
+This in turn, set the title of the document. Names the author as yours
+truly and sets the document language as English. The next header options
+customize the HTML output. They are as follows
+</p>
+
+<pre class="example">
+#+INFOJS_OPT: view:info toc:t ltoc:nil button:t mouse:underline
+#+INFOJS_OPT: path:../org-info.js
+#+LINK_HOME: http://burakkaancopur.info
+#+LINK_UP: http://burakkaancopur.info
+#+HTML_HEAD: &lt;link rel="stylesheet" type="text/css" href="../orgcss/org.css"/&gt;
+</pre>
+
+<p>
+Before explaining what each of them does, let me talk about the directory
+structure of my work environment. I have a top-level folder like <i>~/org</i>.
+Here is what it looks like
+</p>
+
+<pre class="example">
+|-- ~/org
+|   |-- ./orgcss
+|   |-- orginfo.js
+|   |-- ./org-tutorial
+|   |-- ...
+|   |-- ...
+|   |-- a dir for each project
+</pre>
+
+<p>
+<i>orgcss</i> directory contains the CSS files and relevant styling files I use
+for my documents. This is taken from <a href="https://github.com/gongzhitaao/orgcss">this page</a>. In the header
+</p>
+
+<pre class="example">
+#+HTML_HEAD: &lt;link rel="stylesheet" type="text/css" href="../orgcss/org.css" /&gt;
+</pre>
+
+<p>
+see how I set the CSS file. You can set the directory to your custom CSS
+file that suits your taste. Notice also that I have a Javascript file called
+<i>orginfo.js</i> in my directory. This is used to make sure we can view the web
+page as a GNU Info file and navigate the document as such. For example you
+can press "n" on your keyboard to go to the next section, "b" button for
+returning to previous section, "i" displays the table of contents etc. We
+set this by specifying <i>view:info</i>. The other headers
+</p>
+
+<pre class="example">
+#+LINK_HOME: http://burakkaancopur.info
+#+LINK_UP: http://burakkaancopur.info
+</pre>
+
+<p>
+set where you will go if you click on HOME and UP links on a web page in
+this info-like document. 
+</p>
+
+<p>
+This is followed by some LaTeX headers. After this, in the <i>main.org</i> file,
+I just list each chapter and include that chapter's own file by using
+</p>
+
+<pre class="example">
+#+INCLUDE: ch1.org
+</pre>
+
+<p>
+This will import all the contents of <i>ch1.org</i> into main file. With this,
+when I say <i>M-x org-html-export-to-html</i>, I will get a <i>main.html</i> file
+that includes all of my document. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-org8157013" class="outline-2">
+<h2 id="org8157013"><span class="section-number-2">2</span> How to Enrich the HTML Output?</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Let's first talk about how to include a link in a document. Here is
+an example <a href="https://www.google.com">link</a>. This can be inserted using
+</p>
+
+<pre class="example">
+[[https://www.google.com][link]]
+</pre>
+
+<p>
+Since I am a programmer, I think I should next talk about including
+source code listings in a document. Org-mode has environments for
+various things and we will also talk later about creating our own
+environments. For source code, we will use <i>src</i> environments. This
+looks like 
+</p>
+
+<pre class="example">
+#+BEGIN_SRC 
+.. SOURCE CODE GOES HERE
+#+END_SRC
+</pre>
+
+<p>
+We will follow with an example listing so that you can see. Note
+that syntax highlighting depends on <i>htmlize</i> library and you can
+install this with MELPA package manager of emacs. It should come
+bundled with newer versions of org-mode though.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #b58900;">int</span> <span style="color: #268bd2;">main</span>()
+{
+    <span style="color: #859900; font-weight: bold;">return</span> 0;
+}
+</pre>
+</div>
+
+<p>
+These environments we are talking about are also called <i>special
+blocks</i>. Another special block is an example block which I am using
+above as 
+</p>
+
+<pre class="example">
+#+BEGIN_EXAMPLE 
+[[https://www.google.com][link]]
+#+END_EXAMPLE
+</pre>
+
+<p>
+when I first talked about links. The next thing we need to be able to
+add into our document is math of course. We will depend on MathJax
+for this and it is actually really easy with org-mode.
+</p>
+
+<p>
+<div id="Eq-1.1"></div>
+</p>
+\begin{align}
+\mathcal{F}(a) &= \frac{1}{2\pi i}\oint_\gamma \frac{f(z)}{z - a}\,dz\\
+\int_D (\nabla\cdot \mathcal{F})\,dV &=\int_{\partial D}\mathcal{F}\cdot n\, dS
+\end{align}
+
+<p>
+we just drop our equations as if we are creating \(\LaTeX\) documents.
+I use following header at <i>main.org</i> to achieve this.
+</p>
+
+<pre class="example">
+#+HTML_MATHJAX: path: &lt;path-to-MathJax-CDN&gt;
+#+HTML_MATHJAX: align: left indent: 5em tagside: left font: Neo-Euler
+</pre>
+
+<p>
+Another thing is to adding figures and images.
+</p>
+
+
+<div id="org1b7203e" class="figure">
+<p><img src="./img/maxwell.jpg" alt="maxwell.jpg" /> 
+</p>
+<p><span class="figure-number">Figure 1: </span>Demo Picture with Caption</p>
+</div>
+
+<p>
+and this is how to add it
+</p>
+
+<pre class="example">
+#+LABEL: fig:maxwell
+#+CAPTION: Demo Picture with Caption
+[[file:./img/maxwell.jpg]]
+</pre>
+
+<p>
+I put all my images under <i>./img</i> directory relative to the project
+I am working on. We can refer to this image in any place of the
+text using <a href="#org1b7203e">a link</a> by saying
+</p>
+
+<pre class="example">
+[[fig:maxwell][a link]
+</pre>
+
+<p>
+Another important thing is being able to cite other people's work
+and we need to install an emacs package called <i>org-ref</i> to achieve
+this. org-ref will let us achieve more than just citations. It is
+also useful in referencing the parts of our documents like the equation
+above.
+</p>
+
+<p>
+Now we can cite like <a class='org-ref-reference' href="#Shifrin2004">Shifrin2004</a>. 
+</p>
+
+<p>
+Note that I can recall and refer to a past equation as <a href="#Eq-1.1">Eq-1.1</a>.
+And we can put labels and refs to any part of the text. Here is the
+part in the file where we does this.
+</p>
+
+<pre class="example">
+First, we put label:Eq-1.1 to the top of our LaTeX equation.
+We can cite like cite:Shifrin2004. 
+
+Note that I can recall and refer to a past equation as ref:Eq-1.1.
+</pre>
+
+<p>
+We can also use org-ref for keeping an index but that is for \(\LaTeX\)
+exports. You can look into that if you are interested.
+</p>
+
+<p>
+<h1 class='org-ref-bib-h1'>Bibliography</h1>
+<ul class='org-ref-bib'><li><a id="Shifrin2004">[Shifrin2004]</a> Theodore Shifrin, Multivariable Mathematics: Linear Algebra, Multivariable Calculus, and Manifolds, Wiley (2004).</li>
+</ul>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org8f96693" class="outline-2">
+<h2 id="org8f96693"><span class="section-number-2">3</span> Theorems and Proofs</h2>
+<div class="outline-text-2" id="text-3">
 <p>
 We can use a little CSS trick and org-special blocks to make our
 theorems, proof etc. look nicely as in a \(\LaTeX\) typesetted 
@@ -444,6 +789,12 @@ domain and \(\delta\) depends only on  \(\epsilon\).
 <p>
 We also have support for lemmas and that's all for now!
 </p>
+</div>
+</div>
+
+<div id="outline-container-orgd0013f8" class="outline-2">
+<h2 id="orgd0013f8"><span class="section-number-2">4</span> Publishing to Github Pages</h2>
+</div>
 </div>
 </body>
 </html>

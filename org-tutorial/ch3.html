@@ -1,12 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-02-23 Fri 00:49 -->
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Hello, Blog!</title>
-<meta name="generator" content="Org mode">
-<meta name="author" content="Burak Kaan Çopur">
+<!-- 2018-02-22 Thu 23:54 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>&lrm;</title>
+<meta name="generator" content="Org mode" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
   .title  { text-align: center;
@@ -178,79 +179,6 @@
   .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
-<link rel="stylesheet" type="text/css" href="../../orgcss/org.css"/>
-
-<script type="text/javascript" src="https://orgmode.org/org-info.js">
-/**
- *
- * @source: https://orgmode.org/org-info.js
- *
- * @licstart  The following is the entire license notice for the
- *  JavaScript code in https://orgmode.org/org-info.js.
- *
- * Copyright (C) 2012-2018 Free Software Foundation, Inc.
- *
- *
- * The JavaScript code in this tag is free software: you can
- * redistribute it and/or modify it under the terms of the GNU
- * General Public License (GNU GPL) as published by the Free Software
- * Foundation, either version 3 of the License, or (at your option)
- * any later version.  The code is distributed WITHOUT ANY WARRANTY;
- * without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
- *
- * As additional permission under GNU GPL version 3 section 7, you
- * may distribute non-source (e.g., minimized or compacted) forms of
- * that code without the copy of the GNU GPL normally required by
- * section 4, provided you include this license notice and a URL
- * through which recipients can access the Corresponding Source.
- *
- * @licend  The above is the entire license notice
- * for the JavaScript code in https://orgmode.org/org-info.js.
- *
- */
-</script>
-
-<script type="text/javascript">
-
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
-
-Copyright (C) 2012-2018 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
-
-<!--/*--><![CDATA[/*><!--*/
-org_html_manager.set("TOC_DEPTH", "4");
-org_html_manager.set("LINK_HOME", "");
-org_html_manager.set("LINK_UP", "");
-org_html_manager.set("LOCAL_TOC", "0");
-org_html_manager.set("VIEW_BUTTONS", "0");
-org_html_manager.set("MOUSE_HINT", "underline");
-org_html_manager.set("FIXED_TOC", "0");
-org_html_manager.set("TOC", "1");
-org_html_manager.set("VIEW", "showall");
-org_html_manager.setup();  // activate after the parameters are set
-/*]]>*///-->
-</script>
 <script type="text/javascript">
 /*
 @licstart  The following is the entire license notice for the
@@ -297,44 +225,224 @@ for the JavaScript code in this tag.
  }
 /*]]>*///-->
 </script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="content">
-<h1 class="title">Hello, Blog!</h1>
 <p>
-For the first blog post on this site, I am just going to salute you.
-Also, I want this blog post to act as a tutorial for me on what to
-publish and how to publish it using org-mode. On this <a href="https://github.com/meguli/org-documents">repo</a> where I
-keep my <i>~/org</i> folder basically, you can see a directory called
-<i>blog</i>. This have a directory structure like 
+We can use a little CSS trick and org-special blocks to make our
+theorems, proof etc. look nicely as in a \(\LaTeX\) typesetted 
+book.
+</p>
+
+<p>
+<div id="Thm-3.1"></div>
+</p>
+<div class="theorem">
+<p>
+If an integer \(n\) is greater than 2, then the equation \(a^n + b^n = c^n\)
+has no solutions in non-zero integers \(a\), \(b\), and \(c\). 
+</p>
+
+</div>
+
+<div class="proof">
+<p>
+I have a truly <i>marvelous</i> proof of this proposition that this margin is too
+narrow to contain.
+</p>
+
+</div>
+
+<p>
+Let me show you how I inserted above theorem and proof. Here is the code and
+I will explain it.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-org"><span style="color: #b58900; text-decoration: underline;"><a href="label:Thm-3.1">label:Thm-3.1</a></span>
+<span style="color: #586e75; font-style: italic;">#+BEGIN_theorem</span>
+If an integer $n$ is greater than 2, then the equation $a^n + b^n = c^n$
+has no solutions in non-zero integers $a$, $b$, and $c$. 
+<span style="color: #586e75; font-style: italic;">#+END_theorem</span>
+
+<span style="color: #586e75; font-style: italic;">#+BEGIN_proof</span>
+I have a truly <span style="font-style: italic;">/marvelous/</span> proof of this proposition that this margin is too
+narrow to contain.
+<span style="color: #586e75; font-style: italic;">#+END_proof</span>
+</pre>
+</div>
+
+<p>
+<code>BEGIN_theorem</code> and <code>BEGIN_proof</code> craetes us a new environment. For \(\LaTeX\)
+output, these will be exported into following \(\LaTeX\) environments
 </p>
 
 <pre class="example">
-|---blog
-|   |-- ./2018
-|   |-- index.org
-|   |-- additional_files...
-|   |-- ...
-|   |-- ...
-|   |-- a dir for each year
+\begin{theorem}
+If an integer $n$ is greater than 2, then the equation $a^n + b^n = c^n$
+has no solutions in non-zero integers $a$, $b$, and $c$.
+\end{theorem}
+</pre>
+
+<pre class="example">
+\begin{proof}
+I have a truly \emph{marvelous} proof of this proposition that this
+margin is too narrow to contain.
+\end{proof}
 </pre>
 
 <p>
-I write a blog post as an org file. This post's file lies in dir
-<i>2018</i>, as an example. In the main <i>index.org</i> file, I basically
-link a blog post after I write one. This becomes <i>index.html</i> 
-when I call <i>org-publish</i>.
+For HTML export, we will get different div classes as shown below
+</p>
+
+<pre class="example">
+&lt;div class="theorem"&gt;
+...
+&lt;/div&gt;
+</pre>
+
+<pre class="example">
+&lt;div class="proof"&gt;
+...
+&lt;/div&gt;
+</pre>
+
+<p>
+With this, we can add a couple of CSS code to our main CSS style so that
+we can give theorems, proofs etc. the desired look. Here is the CSS
+additions I used, you can change things to your liking.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-css"><span style="color: #268bd2;">.theorem </span>{
+        <span style="color: #268bd2;">margin-top</span>: 1em;
+        <span style="color: #268bd2;">display</span>: block;
+    <span style="color: #268bd2;">font-style</span>:normal;
+        <span style="color: #268bd2;">border</span>: 1px solid black;
+        <span style="color: #268bd2;">border-radius</span>: 5px;
+        <span style="color: #268bd2;">padding-top</span>: 10px;
+        <span style="color: #268bd2;">padding-right</span>: 10px;
+        <span style="color: #268bd2;">padding-bottom</span>: 10px;
+        <span style="color: #268bd2;">padding-left</span>: 10px;
+}
+<span style="color: #268bd2;">.theorem:before </span>{
+    <span style="color: #268bd2;">content</span>: <span style="color: #2aa198;">"Theorem. "</span>;
+    <span style="color: #268bd2;">font-weight</span>: bold;
+    <span style="color: #268bd2;">font-style</span>: normal;
+}
+<span style="color: #268bd2;">.lemma </span>{
+    <span style="color: #268bd2;">margin-top</span>: 1em;
+        <span style="color: #268bd2;">display</span>: block;
+    <span style="color: #268bd2;">font-style</span>:normal;
+        <span style="color: #268bd2;">border</span>: 1px solid black;
+        <span style="color: #268bd2;">border-radius</span>: 5px;
+        <span style="color: #268bd2;">padding-top</span>: 10px;
+        <span style="color: #268bd2;">padding-right</span>: 10px;
+        <span style="color: #268bd2;">padding-bottom</span>: 10px;
+        <span style="color: #268bd2;">padding-left</span>: 10px;
+}
+<span style="color: #268bd2;">.lemma:before </span>{
+    <span style="color: #268bd2;">content</span>: <span style="color: #2aa198;">"Lemma. "</span>;
+    <span style="color: #268bd2;">font-weight</span>: bold;
+    <span style="color: #268bd2;">font-style</span>: normal;
+}
+<span style="color: #268bd2;">.proof </span>{
+        <span style="color: #268bd2;">margin-top</span>: 1em;
+    <span style="color: #268bd2;">display</span>: block;
+    <span style="color: #268bd2;">font-style</span>: normal;
+        <span style="color: #268bd2;">margin-bottom</span>: 1em;
+        <span style="color: #268bd2;">border</span>:1px solid black;
+        <span style="color: #268bd2;">border-radius</span>: 5px;
+        <span style="color: #268bd2;">padding-top</span>: 10px;
+        <span style="color: #268bd2;">padding-right</span>: 10px;
+        <span style="color: #268bd2;">padding-bottom</span>: 24px;
+        <span style="color: #268bd2;">padding-left</span>: 10px;
+}
+<span style="color: #268bd2;">.proof:before </span>{
+    <span style="color: #268bd2;">content</span>: <span style="color: #2aa198;">"Proof. "</span>;
+    <span style="color: #268bd2;">font-style</span>: italic;
+}
+<span style="color: #268bd2;">.proof:after </span>{
+    <span style="color: #268bd2;">content</span>: <span style="color: #2aa198;">"\25FC"</span>;
+    <span style="color: #268bd2;">float</span>:right;
+}
+<span style="color: #268bd2;">.definition </span>{
+    <span style="color: #268bd2;">margin-top</span>: 1em;
+        <span style="color: #268bd2;">display</span>: block;
+    <span style="color: #268bd2;">font-style</span>:normal;
+        <span style="color: #268bd2;">border</span>: 1px solid black;
+        <span style="color: #268bd2;">border-radius</span>: 5px;
+        <span style="color: #268bd2;">padding-top</span>: 10px;
+        <span style="color: #268bd2;">padding-right</span>: 10px;
+        <span style="color: #268bd2;">padding-bottom</span>: 10px;
+        <span style="color: #268bd2;">padding-left</span>: 10px;
+}
+<span style="color: #268bd2;">.definition:before </span>{
+    <span style="color: #268bd2;">content</span>: <span style="color: #2aa198;">"Definition. "</span>;
+    <span style="color: #268bd2;">font-weight</span>: bold;
+    <span style="color: #268bd2;">font-style</span>: normal;
+}
+</pre>
+</div>
+
+<p>
+Noticed at the top how I started my theorem with an org-ref label?
+HTML export is not as good as \(\LaTeX\) when it comes to automatic
+numbering and referencing of things like equations, proofs etc.
+but with a little discipline, we can be quite functional. Here, for
+example, I can refer to my theorem as <a href="#Thm-3.1">Thm-3.1</a>.
 </p>
 
 <p>
-To celebrate, let me also share with you a piece of music that I
-have been listening to a lot lately. This is microtonal jazz by
-Philipp Gerschlauer. I don't know how he is playing the sax in
-that tuning but it is great.
+Here is a definition example.
 </p>
 
 <p>
-<iframe width="440" height="335" src="https://www.youtube.com/embed/PZwDTB4-zNQ" frameborder="0" allowfullscreen></iframe>
+<div id="Definition-3.1"></div>
+</p>
+<div class="definition">
+<p>
+<b>Uniform Continuity</b>
+</p>
+
+<p>
+Suppose \(D \subset \mathbf{R}^n\) and \(\vec f: D \to R^m\). We say \(\vec f\)
+is \(\textit{uniformly}\) continuous if given any \(\epsilon > 0\), there is a
+single \(\delta > 0\) so that whenever \(\vec y \in B(\vec x, \delta)\), then
+\(\vec f(\vec y) \in B(\vec f(\vec x), \epsilon)\), for all \(\vec x \in D\).
+</p>
+
+<p>
+Please note that the above inequality must hold for all \(\vec x\) in the
+domain and \(\delta\) depends only on  \(\epsilon\).
+</p>
+
+</div>
+
+<p>
+We also have support for lemmas and that's all for now!
 </p>
 </div>
 </body>

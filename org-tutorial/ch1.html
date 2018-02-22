@@ -1,12 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-02-23 Fri 00:49 -->
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Hello, Blog!</title>
-<meta name="generator" content="Org mode">
-<meta name="author" content="Burak Kaan Çopur">
+<!-- 2018-02-22 Thu 23:53 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>&lrm;</title>
+<meta name="generator" content="Org mode" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
   .title  { text-align: center;
@@ -178,79 +179,6 @@
   .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
-<link rel="stylesheet" type="text/css" href="../../orgcss/org.css"/>
-
-<script type="text/javascript" src="https://orgmode.org/org-info.js">
-/**
- *
- * @source: https://orgmode.org/org-info.js
- *
- * @licstart  The following is the entire license notice for the
- *  JavaScript code in https://orgmode.org/org-info.js.
- *
- * Copyright (C) 2012-2018 Free Software Foundation, Inc.
- *
- *
- * The JavaScript code in this tag is free software: you can
- * redistribute it and/or modify it under the terms of the GNU
- * General Public License (GNU GPL) as published by the Free Software
- * Foundation, either version 3 of the License, or (at your option)
- * any later version.  The code is distributed WITHOUT ANY WARRANTY;
- * without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
- *
- * As additional permission under GNU GPL version 3 section 7, you
- * may distribute non-source (e.g., minimized or compacted) forms of
- * that code without the copy of the GNU GPL normally required by
- * section 4, provided you include this license notice and a URL
- * through which recipients can access the Corresponding Source.
- *
- * @licend  The above is the entire license notice
- * for the JavaScript code in https://orgmode.org/org-info.js.
- *
- */
-</script>
-
-<script type="text/javascript">
-
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
-
-Copyright (C) 2012-2018 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
-
-<!--/*--><![CDATA[/*><!--*/
-org_html_manager.set("TOC_DEPTH", "4");
-org_html_manager.set("LINK_HOME", "");
-org_html_manager.set("LINK_UP", "");
-org_html_manager.set("LOCAL_TOC", "0");
-org_html_manager.set("VIEW_BUTTONS", "0");
-org_html_manager.set("MOUSE_HINT", "underline");
-org_html_manager.set("FIXED_TOC", "0");
-org_html_manager.set("TOC", "1");
-org_html_manager.set("VIEW", "showall");
-org_html_manager.setup();  // activate after the parameters are set
-/*]]>*///-->
-</script>
 <script type="text/javascript">
 /*
 @licstart  The following is the entire license notice for the
@@ -300,41 +228,108 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title">Hello, Blog!</h1>
 <p>
-For the first blog post on this site, I am just going to salute you.
-Also, I want this blog post to act as a tutorial for me on what to
-publish and how to publish it using org-mode. On this <a href="https://github.com/meguli/org-documents">repo</a> where I
-keep my <i>~/org</i> folder basically, you can see a directory called
-<i>blog</i>. This have a directory structure like 
+For me, org-mode is a document creation system and is the only reason
+I keep using emacs. In this notes, I am going to explain how I use it
+to generate documents like this. And maybe in the future, I will also
+explain how I use it to create LaTeX documents.
+</p>
+
+<p>
+Assuming you have emacs installed, you already have org-mode since it
+comes bundled. The next step is making sure that you completed the
+tutorial given at the below link since we are going to focus on publishing
+our documents as a web page:
+</p>
+
+<p>
+<a href="https://orgmode.org/worg/org-tutorials/org-publish-html-tutorial.html">Publishing to HTML using org-mode</a> 
+</p>
+
+
+<p>
+Let me now explain each of the related headers at the beginning of the
+main org-mode file. In a project, I mainly call this file <i>main.org</i>. 
 </p>
 
 <pre class="example">
-|---blog
-|   |-- ./2018
-|   |-- index.org
-|   |-- additional_files...
-|   |-- ...
-|   |-- ...
-|   |-- a dir for each year
+#+TITLE:     How I Use Emacs org-mode
+#+AUTHOR:    Burak Kaan \Ccedil opur
+#+LANGUAGE:  en
 </pre>
 
 <p>
-I write a blog post as an org file. This post's file lies in dir
-<i>2018</i>, as an example. In the main <i>index.org</i> file, I basically
-link a blog post after I write one. This becomes <i>index.html</i> 
-when I call <i>org-publish</i>.
+This in turn, set the title of the document. Names the author as yours
+truly and sets the document language as English. The next header options
+customize the HTML output. They are as follows
+</p>
+
+<pre class="example">
+#+INFOJS_OPT: view:info toc:t ltoc:nil button:t mouse:underline
+#+INFOJS_OPT: path:../org-info.js
+#+LINK_HOME: http://burakkaancopur.info
+#+LINK_UP: http://burakkaancopur.info
+#+HTML_HEAD: &lt;link rel="stylesheet" type="text/css" href="../orgcss/org.css"/&gt;
+</pre>
+
+<p>
+Before explaining what each of them does, let me talk about the directory
+structure of my work environment. I have a top-level folder like <i>~/org</i>.
+Here is what it looks like
+</p>
+
+<pre class="example">
+|-- ~/org
+|   |-- ./orgcss
+|   |-- orginfo.js
+|   |-- ./org-tutorial
+|   |-- ...
+|   |-- ...
+|   |-- a dir for each project
+</pre>
+
+<p>
+<i>orgcss</i> directory contains the CSS files and relevant styling files I use
+for my documents. This is taken from <a href="https://github.com/gongzhitaao/orgcss">this page</a>. In the header
+</p>
+
+<pre class="example">
+#+HTML_HEAD: &lt;link rel="stylesheet" type="text/css" href="../orgcss/org.css" /&gt;
+</pre>
+
+<p>
+see how I set the CSS file. You can set the directory to your custom CSS
+file that suits your taste. Notice also that I have a Javascript file called
+<i>orginfo.js</i> in my directory. This is used to make sure we can view the web
+page as a GNU Info file and navigate the document as such. For example you
+can press "n" on your keyboard to go to the next section, "b" button for
+returning to previous section, "i" displays the table of contents etc. We
+set this by specifying <i>view:info</i>. The other headers
+</p>
+
+<pre class="example">
+#+LINK_HOME: http://burakkaancopur.info
+#+LINK_UP: http://burakkaancopur.info
+</pre>
+
+<p>
+set where you will go if you click on HOME and UP links on a web page in
+this info-like document. 
 </p>
 
 <p>
-To celebrate, let me also share with you a piece of music that I
-have been listening to a lot lately. This is microtonal jazz by
-Philipp Gerschlauer. I don't know how he is playing the sax in
-that tuning but it is great.
+This is followed by some LaTeX headers. After this, in the <i>main.org</i> file,
+I just list each chapter and include that chapter's own file by using
 </p>
 
+<pre class="example">
+#+INCLUDE: ch1.org
+</pre>
+
 <p>
-<iframe width="440" height="335" src="https://www.youtube.com/embed/PZwDTB4-zNQ" frameborder="0" allowfullscreen></iframe>
+This will import all the contents of <i>ch1.org</i> into main file. With this,
+when I say <i>M-x org-html-export-to-html</i>, I will get a <i>main.html</i> file
+that includes all of my document. 
 </p>
 </div>
 </body>

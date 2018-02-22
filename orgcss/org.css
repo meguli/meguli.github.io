@@ -183,6 +183,10 @@ html{font-family:sans-serif;line-height:1.15;-ms-text-size-adjust:100%;-webkit-t
     display: none;
 }
 
+.post p {
+	text-align: justify;
+}
+
 /* meta info */
 .post-info {
     display: inline-block;

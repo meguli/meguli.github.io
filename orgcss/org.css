@@ -340,6 +340,41 @@ iframe {
     padding: 1em
 }
 
+/* Responsive
+   -------------------------------------------------- */
+@media only screen and (max-width: 500px) {
+	body {
+		background-color: lightblue;
+        padding: 30px;
+        font-size: 10px;
+        line-height: 1.75;
+    }
+    h1:before, h2:before, h3:before {
+        display: inline;
+    }
+	.masthead {
+		width: 100%;
+		color: #333;
+	}
+}
+
+@media (min-width: 768px) {
+    /* Increase body padding and font-sizes */
+    body {
+        padding: 30px;
+        font-size: 18px;
+        line-height: 1.75;
+    }
+    h1:before, h2:before, h3:before {
+        display: inline;
+    }
+}
+
+@media (min-width: 1024px) {
+    body {
+        padding: 30px;
+    }
+}
 
 
 

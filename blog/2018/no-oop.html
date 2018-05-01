@@ -4,7 +4,7 @@
 <!-- 2018-05-01 Tue 14:22 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Hello, Blog!</title>
+<title>There is no such thing as OOP!</title>
 <meta name="generator" content="Org mode">
 <meta name="author" content="Burak Kaan Çopur">
 <style type="text/css">
@@ -300,41 +300,177 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title">Hello, Blog!</h1>
+<h1 class="title">There is no such thing as OOP!</h1>
 <p>
-For the first blog post on this site, I am just going to salute you.
-Also, I want this blog post to act as a tutorial for me on what to
-publish and how to publish it using org-mode. On this <a href="https://github.com/meguli/org-documents">repo</a> where I
-keep my <i>~/org</i> folder basically, you can see a directory called
-<i>blog</i>. This have a directory structure like 
+Let me start with what I want to say, OOP is just a bag of misfounded tricks
+that reflects a great deal of confusion about the nature of programming. It
+should be forgotten by now because it is confusing and it encourages all
+sorts of messy programs. In fact, FP is not different. There are no such
+things man, there is only programming!
 </p>
 
-<pre class="example">
-|---blog
-|   |-- ./2018
-|   |-- index.org
-|   |-- additional_files...
-|   |-- ...
-|   |-- ...
-|   |-- a dir for each year
+<p>
+Let's go back to computation. There are two popular ways of computing things.
+</p>
+
+<ol class="org-ol">
+<li>One that focuses on mutating immediate values at each step like an</li>
+</ol>
+<p>
+abacus, which is founded on Turing machines and we can think at a higher
+level so that we can use Random Access Machine instead. You can call this
+one imperative computation or abacus computation, if you want to.
+</p>
+
+<ol class="org-ol">
+<li>This one focuses on computation by recursive function application and</li>
+</ol>
+<p>
+there lies lambda calculus at its basis. You can call this one functional
+computation, again if you want to.
+</p>
+
+<div class="remark">
+<p>
+There are other models of computation but let's stick with these two for
+now. 
+</p>
+
+</div>
+
+<p>
+As you can see, being functional or imperative is not about programming.
+It's about computation. Of course, your chosen model of computation affects
+how you program. For that, let's also take a look at what is programming. 
+<b>Programming</b> is to structure computations in a way that solves a particular
+problem. If your model of computation is based on lambda calculus, you
+will be doing a lot of recursion as in Haskell or Lisp. If your model of
+computation is RAM, than you we'll be doing a lot of loops as in C++. So,
+model of computation affects your programming indeed. But it is the structuring
+part that is the meat of programming and structuring techniques are universal
+accross models of computation. 
+</p>
+
+<p>
+Where does OOP fall then? Well, its place is actually rather miserable. 
+Say, OOP is about things like information hiding, encapsulation, weak
+coupling, strong cohesion, DRY, SOLID etc. OOP crowd loves giving things
+names that are not mathematical because somehow mathematics is not
+welcoming to the layman and apparently there is never any need to learn
+the actual mathematics behind. Why anoyone invented any math in the fist
+place? Who needed vector spaces? You could call it "collection of straight
+things with a common starting point" and abbreviate it as COSTWACSP. A lot
+better than vector spaces, right?
+</p>
+
+<p>
+OOP is about programming, nothing wrong there, Its concern for things like
+cohesion, SOLID etc. shows that it is about structuring programs. But,
+it is a rather ad-hoc way of structuring programs and as with everything
+of this sort, in introduces more confusion than it clears up. 
+</p>
+
+<p>
+First of all, OOP makes it amazingly confusing to think about types. 
+You have classes, public structs, unions, abstract base protected interface inheritances&#x2026; 
+Wow, so much bullshit. They introduced all this nonsense so that they
+can achieve information hiding and encapsulation while having inheritance
+but in reality, it fails. Think about it, only reason we want information
+hiding and encapsulation is so that we can achieve code reuse. We want
+to write code, luckily, once and if we want to extend the program in 
+the future, we will change only one place. You don't need to pollute
+your types with all this nonsense to achieve this! If you have a proper
+module system, you are just fine. Than you can go back to thinking 
+about types in terms of algebraic entities. You can do product and sum
+types, you can have that amazingly good thing we call pattern matching.
+Think about it, C++ have sum types, right? <b>std::variant</b>? Well, 
+visitors are useless and pain in the ass.
+</p>
+
+<p>
+And don't get me started on inheritance&#x2026; No one uses it anymore except
+some interface inheritence and that is just poor type classes. Well, but
+interfaces may have data&#x2026; Well, they shouldn't. It is just another global
+variable hidden in the name of information hiding and it just calls for
+more bad programming practices. C++ concepts will be hopefully better in
+that regard. But the real thing is, even Java and C++ is not OOP anymore.
+Most of the uses of inheritance is, as I said, interface inheritance and
+it is just used together with generics and templates to have parametric 
+polymorphism. OOP's confusion about types just makes everything harder.
+You can't have proper parametric polymorphism, you need extra hacks. You
+can't have algebraic data types because again, you need hacks&#x2026; OOP is
+just a big, not-really-ok hack. 
+</p>
+
+<p>
+By the way, there is a name for structuring your code in the best possible
+way, it is called generic programming. Generic programming is just
+programming actually, there should not have been a need to give a new name but 
+OOP confused so many things that we had to follow this path. Generic
+programming means striving for mathematical level of generality and clarity
+while devising abstractions and that should have been the norm. How to
+achieve this level of clarity while also having code reuse was , and
+still is, a hard question but we are making progress. Stop that OOP confusion.
+Forget everything about it, SOLID, DRY, YAGNI, Design patterns&#x2026; 
+</p>
+
+<p>
+By the way, most of functional programming is confusion as well. Functional
+programming is not about pure functions, is not about higher order 
+functions, is not about Monads, Functors, Applicatives. It is only about
+one thing; programming with recursive structures. Let's look at following
+code.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-cpp"><span style="color: #859900; font-weight: bold;">template</span> &lt;<span style="color: #859900; font-weight: bold;">typename</span> <span style="color: #b58900;">T</span>&gt;
+<span style="color: #859900; font-weight: bold;">struct</span> <span style="color: #b58900;">plus</span> {
+    T <span style="color: #859900; font-weight: bold;">operator</span>(<span style="color: #b58900;">T</span> <span style="color: #859900; font-weight: bold;">const</span>&amp; <span style="color: #268bd2;">e1</span>, <span style="color: #b58900;">T</span> <span style="color: #859900; font-weight: bold;">const</span>&amp; <span style="color: #268bd2;">e2</span>){
+        <span style="color: #586e75;">// </span><span style="color: #586e75;">Imagine the most imperative way of</span>
+        <span style="color: #586e75;">// </span><span style="color: #586e75;">adding two things here</span>
+    }
+};
+
+<span style="color: #268bd2; font-weight: bold;">chops</span>::fold(plus{}, <span style="color: #b58900;">some_monoid</span>&lt;<span style="color: #b58900;">T</span>&gt;)... <span style="color: #586e75;">//</span><span style="color: #586e75;">whatever</span>
 </pre>
+</div>
 
 <p>
-I write a blog post as an org file. This post's file lies in dir
-<i>2018</i>, as an example. In the main <i>index.org</i> file, I basically
-link a blog post after I write one. This becomes <i>index.html</i> 
-when I call <i>org-publish</i>.
+As you can see, I can pass functions as first class objects in very old
+C++ and I can still use all my imperative thinking. Higher-order functions
+let's you abstract operations and this is just another theme in generic
+programming. You have structures and mappings between them and if you
+want to write generic code, you need to talk about operations themselves.
+Pure functions are also not about FP, the above addition function might
+be perfectly pure. Monads, Functors etc. are all generic ways of composing
+code while managing side-effects. Monads, Functors and Applicatives are
+really not about FP, they are about generic programming just like type 
+classes are. So they are about programming which in turn means they are
+about mathematics. 
 </p>
 
 <p>
-To celebrate, let me also share with you a piece of music that I
-have been listening to a lot lately. This is microtonal jazz by
-Philipp Gerschlauer. I don't know how he is playing the sax in
-that tuning but it is great.
+You see, all of the popular languages are evolving away from OOP, so what
+is the problem? First of all, due to backward compatibility, OOP left a
+nasty scar. I get mad the moment I start to think about type constructors
+in an OOP langauge. No OOP language has proper pattern matching due to
+this reason. We really need a clean slate but we can't have it because we
+need to write real-world code! So sad. Rust seems to be doing fine on
+this regard. Hope it gets some adoption, then I will learn it. Another 
+thing that bothers me is that people think languages are evolving towards
+functional, away from OOP. Nope, FP is just programming with recursive 
+structures and most of the things you see under the name of FP is just
+generic programming, which is just programming. Of course, FP circles
+should take some pride. They did not give into bullshit like OOP crowd.
+This is why they contributed a lot to the generic programming but C++
+community did as much. Still, C++ is brain-dead from all those OOP
+scars. 
 </p>
 
 <p>
-<iframe width="440" height="335" src="https://www.youtube.com/embed/PZwDTB4-zNQ" frameborder="0" allowfullscreen></iframe>
+I hope OOP will be forgotten. OOP is the not-so-new goto. We all know this. In 
+fact, this post is useless. Everyone knows all of it. Yeah, this is
+for those new programmers who are forced to learn OOP. Just don't!
 </p>
 
 <div id="disqus_thread"></div>

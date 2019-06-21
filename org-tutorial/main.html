@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-02-22 Thu 23:54 -->
+<!-- 2019-06-21 Fri 07:14 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>How I Use Emacs org-mode</title>
@@ -329,16 +329,16 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org7b686b4">1. Initial Setup</a></li>
-<li><a href="#org8157013">2. How to Enrich the HTML Output?</a></li>
-<li><a href="#org8f96693">3. Theorems and Proofs</a></li>
-<li><a href="#orgd0013f8">4. Publishing to Github Pages</a></li>
+<li><a href="#org404dfb0">1. Initial Setup</a></li>
+<li><a href="#orgd91fcb9">2. How to Enrich the HTML Output?</a></li>
+<li><a href="#orgcf8d26f">3. Theorems and Proofs</a></li>
+<li><a href="#org89b3461">4. Publishing to Github Pages</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org7b686b4" class="outline-2">
-<h2 id="org7b686b4"><span class="section-number-2">1</span> Initial Setup</h2>
+<div id="outline-container-org404dfb0" class="outline-2">
+<h2 id="org404dfb0"><span class="section-number-2">1</span> Initial Setup</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 For me, org-mode is a document creation system and is the only reason
@@ -446,8 +446,8 @@ that includes all of my document.
 </div>
 </div>
 
-<div id="outline-container-org8157013" class="outline-2">
-<h2 id="org8157013"><span class="section-number-2">2</span> How to Enrich the HTML Output?</h2>
+<div id="outline-container-orgd91fcb9" class="outline-2">
+<h2 id="orgd91fcb9"><span class="section-number-2">2</span> How to Enrich the HTML Output?</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Let's first talk about how to include a link in a document. Here is
@@ -506,7 +506,7 @@ for this and it is actually really easy with org-mode.
 </p>
 
 <p>
-<div id="Eq-1.1"></div>
+label:Eq-1.1
 </p>
 \begin{align}
 \mathcal{F}(a) &= \frac{1}{2\pi i}\oint_\gamma \frac{f(z)}{z - a}\,dz\\
@@ -528,7 +528,7 @@ Another thing is to adding figures and images.
 </p>
 
 
-<div id="org1b7203e" class="figure">
+<div id="orgb667614" class="figure">
 <p><img src="./img/maxwell.jpg" alt="maxwell.jpg" /> 
 </p>
 <p><span class="figure-number">Figure 1: </span>Demo Picture with Caption</p>
@@ -547,7 +547,7 @@ and this is how to add it
 <p>
 I put all my images under <i>./img</i> directory relative to the project
 I am working on. We can refer to this image in any place of the
-text using <a href="#org1b7203e">a link</a> by saying
+text using <a href="#orgb667614">a link</a> by saying
 </p>
 
 <pre class="example">
@@ -563,11 +563,11 @@ above.
 </p>
 
 <p>
-Now we can cite like <a class='org-ref-reference' href="#Shifrin2004">Shifrin2004</a>. 
+Now we can cite like cite:Shifrin2004. 
 </p>
 
 <p>
-Note that I can recall and refer to a past equation as <a href="#Eq-1.1">Eq-1.1</a>.
+Note that I can recall and refer to a past equation as ref:Eq-1.1.
 And we can put labels and refs to any part of the text. Here is the
 part in the file where we does this.
 </p>
@@ -585,15 +585,13 @@ exports. You can look into that if you are interested.
 </p>
 
 <p>
-<h1 class='org-ref-bib-h1'>Bibliography</h1>
-<ul class='org-ref-bib'><li><a id="Shifrin2004">[Shifrin2004]</a> Theodore Shifrin, Multivariable Mathematics: Linear Algebra, Multivariable Calculus, and Manifolds, Wiley (2004).</li>
-</ul>
+bibliography:refs.bib
 </p>
 </div>
 </div>
 
-<div id="outline-container-org8f96693" class="outline-2">
-<h2 id="org8f96693"><span class="section-number-2">3</span> Theorems and Proofs</h2>
+<div id="outline-container-orgcf8d26f" class="outline-2">
+<h2 id="orgcf8d26f"><span class="section-number-2">3</span> Theorems and Proofs</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 We can use a little CSS trick and org-special blocks to make our
@@ -602,7 +600,7 @@ book.
 </p>
 
 <p>
-<div id="Thm-3.1"></div>
+label:Thm-3.1
 </p>
 <div class="theorem">
 <p>
@@ -626,16 +624,16 @@ I will explain it.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-org"><span style="color: #b58900; text-decoration: underline;"><a href="label:Thm-3.1">label:Thm-3.1</a></span>
-<span style="color: #586e75; font-style: italic;">#+BEGIN_theorem</span>
+<pre class="src src-org">label:Thm-3.1
+<span style="color: #586e75; font-style: italic; text-decoration: underline;">#+BEGIN_theorem</span>
 If an integer $n$ is greater than 2, then the equation $a^n + b^n = c^n$
 has no solutions in non-zero integers $a$, $b$, and $c$. 
-<span style="color: #586e75; font-style: italic;">#+END_theorem</span>
+<span style="color: #586e75; font-style: italic; text-decoration: overline;">#+END_theorem</span>
 
-<span style="color: #586e75; font-style: italic;">#+BEGIN_proof</span>
+<span style="color: #586e75; font-style: italic; text-decoration: underline;">#+BEGIN_proof</span>
 I have a truly <span style="font-style: italic;">/marvelous/</span> proof of this proposition that this margin is too
 narrow to contain.
-<span style="color: #586e75; font-style: italic;">#+END_proof</span>
+<span style="color: #586e75; font-style: italic; text-decoration: overline;">#+END_proof</span>
 </pre>
 </div>
 
@@ -682,72 +680,72 @@ additions I used, you can change things to your liking.
 
 <div class="org-src-container">
 <pre class="src src-css"><span style="color: #268bd2;">.theorem </span>{
-        <span style="color: #268bd2;">margin-top</span>: 1em;
-        <span style="color: #268bd2;">display</span>: block;
-    <span style="color: #268bd2;">font-style</span>:normal;
-        <span style="color: #268bd2;">border</span>: 1px solid black;
-        <span style="color: #268bd2;">border-radius</span>: 5px;
-        <span style="color: #268bd2;">padding-top</span>: 10px;
-        <span style="color: #268bd2;">padding-right</span>: 10px;
-        <span style="color: #268bd2;">padding-bottom</span>: 10px;
-        <span style="color: #268bd2;">padding-left</span>: 10px;
+        <span style="color: #859900; font-weight: bold;">margin-top</span>: 1em;
+        <span style="color: #859900; font-weight: bold;">display</span>: block;
+    <span style="color: #859900; font-weight: bold;">font-style</span>:normal;
+        <span style="color: #859900; font-weight: bold;">border</span>: 1px solid <span style="color: #ffffff; background-color: #000000;">black</span>;
+        <span style="color: #859900; font-weight: bold;">border-radius</span>: 5px;
+        <span style="color: #859900; font-weight: bold;">padding-top</span>: 10px;
+        <span style="color: #859900; font-weight: bold;">padding-right</span>: 10px;
+        <span style="color: #859900; font-weight: bold;">padding-bottom</span>: 10px;
+        <span style="color: #859900; font-weight: bold;">padding-left</span>: 10px;
 }
 <span style="color: #268bd2;">.theorem:before </span>{
-    <span style="color: #268bd2;">content</span>: <span style="color: #2aa198;">"Theorem. "</span>;
-    <span style="color: #268bd2;">font-weight</span>: bold;
-    <span style="color: #268bd2;">font-style</span>: normal;
+    <span style="color: #859900; font-weight: bold;">content</span>: <span style="color: #2aa198;">"Theorem. "</span>;
+    <span style="color: #859900; font-weight: bold;">font-weight</span>: bold;
+    <span style="color: #859900; font-weight: bold;">font-style</span>: normal;
 }
 <span style="color: #268bd2;">.lemma </span>{
-    <span style="color: #268bd2;">margin-top</span>: 1em;
-        <span style="color: #268bd2;">display</span>: block;
-    <span style="color: #268bd2;">font-style</span>:normal;
-        <span style="color: #268bd2;">border</span>: 1px solid black;
-        <span style="color: #268bd2;">border-radius</span>: 5px;
-        <span style="color: #268bd2;">padding-top</span>: 10px;
-        <span style="color: #268bd2;">padding-right</span>: 10px;
-        <span style="color: #268bd2;">padding-bottom</span>: 10px;
-        <span style="color: #268bd2;">padding-left</span>: 10px;
+    <span style="color: #859900; font-weight: bold;">margin-top</span>: 1em;
+        <span style="color: #859900; font-weight: bold;">display</span>: block;
+    <span style="color: #859900; font-weight: bold;">font-style</span>:normal;
+        <span style="color: #859900; font-weight: bold;">border</span>: 1px solid <span style="color: #ffffff; background-color: #000000;">black</span>;
+        <span style="color: #859900; font-weight: bold;">border-radius</span>: 5px;
+        <span style="color: #859900; font-weight: bold;">padding-top</span>: 10px;
+        <span style="color: #859900; font-weight: bold;">padding-right</span>: 10px;
+        <span style="color: #859900; font-weight: bold;">padding-bottom</span>: 10px;
+        <span style="color: #859900; font-weight: bold;">padding-left</span>: 10px;
 }
 <span style="color: #268bd2;">.lemma:before </span>{
-    <span style="color: #268bd2;">content</span>: <span style="color: #2aa198;">"Lemma. "</span>;
-    <span style="color: #268bd2;">font-weight</span>: bold;
-    <span style="color: #268bd2;">font-style</span>: normal;
+    <span style="color: #859900; font-weight: bold;">content</span>: <span style="color: #2aa198;">"Lemma. "</span>;
+    <span style="color: #859900; font-weight: bold;">font-weight</span>: bold;
+    <span style="color: #859900; font-weight: bold;">font-style</span>: normal;
 }
 <span style="color: #268bd2;">.proof </span>{
-        <span style="color: #268bd2;">margin-top</span>: 1em;
-    <span style="color: #268bd2;">display</span>: block;
-    <span style="color: #268bd2;">font-style</span>: normal;
-        <span style="color: #268bd2;">margin-bottom</span>: 1em;
-        <span style="color: #268bd2;">border</span>:1px solid black;
-        <span style="color: #268bd2;">border-radius</span>: 5px;
-        <span style="color: #268bd2;">padding-top</span>: 10px;
-        <span style="color: #268bd2;">padding-right</span>: 10px;
-        <span style="color: #268bd2;">padding-bottom</span>: 24px;
-        <span style="color: #268bd2;">padding-left</span>: 10px;
+        <span style="color: #859900; font-weight: bold;">margin-top</span>: 1em;
+    <span style="color: #859900; font-weight: bold;">display</span>: block;
+    <span style="color: #859900; font-weight: bold;">font-style</span>: normal;
+        <span style="color: #859900; font-weight: bold;">margin-bottom</span>: 1em;
+        <span style="color: #859900; font-weight: bold;">border</span>:1px solid <span style="color: #ffffff; background-color: #000000;">black</span>;
+        <span style="color: #859900; font-weight: bold;">border-radius</span>: 5px;
+        <span style="color: #859900; font-weight: bold;">padding-top</span>: 10px;
+        <span style="color: #859900; font-weight: bold;">padding-right</span>: 10px;
+        <span style="color: #859900; font-weight: bold;">padding-bottom</span>: 24px;
+        <span style="color: #859900; font-weight: bold;">padding-left</span>: 10px;
 }
 <span style="color: #268bd2;">.proof:before </span>{
-    <span style="color: #268bd2;">content</span>: <span style="color: #2aa198;">"Proof. "</span>;
-    <span style="color: #268bd2;">font-style</span>: italic;
+    <span style="color: #859900; font-weight: bold;">content</span>: <span style="color: #2aa198;">"Proof. "</span>;
+    <span style="color: #859900; font-weight: bold;">font-style</span>: italic;
 }
 <span style="color: #268bd2;">.proof:after </span>{
-    <span style="color: #268bd2;">content</span>: <span style="color: #2aa198;">"\25FC"</span>;
-    <span style="color: #268bd2;">float</span>:right;
+    <span style="color: #859900; font-weight: bold;">content</span>: <span style="color: #2aa198;">"\25FC"</span>;
+    <span style="color: #859900; font-weight: bold;">float</span>:right;
 }
 <span style="color: #268bd2;">.definition </span>{
-    <span style="color: #268bd2;">margin-top</span>: 1em;
-        <span style="color: #268bd2;">display</span>: block;
-    <span style="color: #268bd2;">font-style</span>:normal;
-        <span style="color: #268bd2;">border</span>: 1px solid black;
-        <span style="color: #268bd2;">border-radius</span>: 5px;
-        <span style="color: #268bd2;">padding-top</span>: 10px;
-        <span style="color: #268bd2;">padding-right</span>: 10px;
-        <span style="color: #268bd2;">padding-bottom</span>: 10px;
-        <span style="color: #268bd2;">padding-left</span>: 10px;
+    <span style="color: #859900; font-weight: bold;">margin-top</span>: 1em;
+        <span style="color: #859900; font-weight: bold;">display</span>: block;
+    <span style="color: #859900; font-weight: bold;">font-style</span>:normal;
+        <span style="color: #859900; font-weight: bold;">border</span>: 1px solid <span style="color: #ffffff; background-color: #000000;">black</span>;
+        <span style="color: #859900; font-weight: bold;">border-radius</span>: 5px;
+        <span style="color: #859900; font-weight: bold;">padding-top</span>: 10px;
+        <span style="color: #859900; font-weight: bold;">padding-right</span>: 10px;
+        <span style="color: #859900; font-weight: bold;">padding-bottom</span>: 10px;
+        <span style="color: #859900; font-weight: bold;">padding-left</span>: 10px;
 }
 <span style="color: #268bd2;">.definition:before </span>{
-    <span style="color: #268bd2;">content</span>: <span style="color: #2aa198;">"Definition. "</span>;
-    <span style="color: #268bd2;">font-weight</span>: bold;
-    <span style="color: #268bd2;">font-style</span>: normal;
+    <span style="color: #859900; font-weight: bold;">content</span>: <span style="color: #2aa198;">"Definition. "</span>;
+    <span style="color: #859900; font-weight: bold;">font-weight</span>: bold;
+    <span style="color: #859900; font-weight: bold;">font-style</span>: normal;
 }
 </pre>
 </div>
@@ -757,7 +755,7 @@ Noticed at the top how I started my theorem with an org-ref label?
 HTML export is not as good as \(\LaTeX\) when it comes to automatic
 numbering and referencing of things like equations, proofs etc.
 but with a little discipline, we can be quite functional. Here, for
-example, I can refer to my theorem as <a href="#Thm-3.1">Thm-3.1</a>.
+example, I can refer to my theorem as ref:Thm-3.1.
 </p>
 
 <p>
@@ -765,7 +763,7 @@ Here is a definition example.
 </p>
 
 <p>
-<div id="Definition-3.1"></div>
+label:Definition-3.1
 </p>
 <div class="definition">
 <p>
@@ -792,9 +790,14 @@ We also have support for lemmas and that's all for now!
 </div>
 </div>
 
-<div id="outline-container-orgd0013f8" class="outline-2">
-<h2 id="orgd0013f8"><span class="section-number-2">4</span> Publishing to Github Pages</h2>
+<div id="outline-container-org89b3461" class="outline-2">
+<h2 id="org89b3461"><span class="section-number-2">4</span> Publishing to Github Pages</h2>
 </div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Burak Kaan Copur</p>
+<p class="date">Created: 2019-06-21 Fri 07:14</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
 </html>

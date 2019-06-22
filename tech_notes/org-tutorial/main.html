@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-06-22 Sat 15:37 -->
+<!-- 2019-06-22 Sat 16:38 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>How I Use Emacs org-mode</title>
@@ -555,6 +555,51 @@ text using <a href="#org9681cd6">a link</a> by saying
 </pre>
 
 <p>
+It is also possible to embed Youtube videos. First, we have to add following 
+to our <i>.emacs</i> file.
+</p>
+
+<pre class="example">
+(defvar yt-iframe-format
+  ;; You may want to change your width and height.
+  (concat "&lt;iframe width=\"440\""
+	  " height=\"335\""
+	  " src=\"https://www.youtube.com/embed/%s\""
+	  " frameborder=\"0\""
+	  " allowfullscreen&gt;%s&lt;/iframe&gt;"))
+
+(org-add-link-type
+ "yt"
+ (lambda (handle)
+   (browse-url
+    (concat "https://www.youtube.com/embed/"
+	    handle)))
+ (lambda (path desc backend)
+   (cl-case backend
+     (html (format yt-iframe-format
+		   path (or desc "")))
+     (latex (format "\href{%s}{%s}"
+		    path (or desc "video"))))))
+</pre>
+
+<p>
+Then, add youtube videos using
+</p>
+
+<pre class="example">
+[[yt:PZwDTB4-zNQ]]
+</pre>
+
+<p>
+where <i>PZwDTB4-zNQ</i> is the video part of a youtube link. Resulting video looks
+like the one below
+</p>
+
+<p>
+<iframe width="440" height="335" src="https://www.youtube.com/embed/PZwDTB4-zNQ" frameborder="0" allowfullscreen></iframe>
+</p>
+
+<p>
 Another important thing is being able to cite other people's work
 and we need to install an emacs package called <i>org-ref</i> to achieve
 this. org-ref will let us achieve more than just citations. It is
@@ -796,7 +841,7 @@ We also have support for lemmas and that's all for now!
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Burak Kaan Copur</p>
-<p class="date">Created: 2019-06-22 Sat 15:37</p>
+<p class="date">Created: 2019-06-22 Sat 16:38</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

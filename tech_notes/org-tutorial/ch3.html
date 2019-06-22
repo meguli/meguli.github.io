@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-05-01 Tue 15:00 -->
+<!-- 2019-06-22 Sat 15:37 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
@@ -257,7 +257,7 @@ book.
 </p>
 
 <p>
-<div id="Thm-3.1"></div>
+label:Thm-3.1
 </p>
 <div class="theorem">
 <p>
@@ -281,16 +281,16 @@ I will explain it.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-org"><span style="color: #b58900; text-decoration: underline;"><a href="label:Thm-3.1">label:Thm-3.1</a></span>
-<span style="color: #586e75; font-style: italic;">#+BEGIN_theorem</span>
+<pre class="src src-org">label:Thm-3.1
+<span style="color: #586e75; font-style: italic; text-decoration: underline;">#+BEGIN_theorem</span>
 If an integer $n$ is greater than 2, then the equation $a^n + b^n = c^n$
 has no solutions in non-zero integers $a$, $b$, and $c$. 
-<span style="color: #586e75; font-style: italic;">#+END_theorem</span>
+<span style="color: #586e75; font-style: italic; text-decoration: overline;">#+END_theorem</span>
 
-<span style="color: #586e75; font-style: italic;">#+BEGIN_proof</span>
+<span style="color: #586e75; font-style: italic; text-decoration: underline;">#+BEGIN_proof</span>
 I have a truly <span style="font-style: italic;">/marvelous/</span> proof of this proposition that this margin is too
 narrow to contain.
-<span style="color: #586e75; font-style: italic;">#+END_proof</span>
+<span style="color: #586e75; font-style: italic; text-decoration: overline;">#+END_proof</span>
 </pre>
 </div>
 
@@ -337,72 +337,72 @@ additions I used, you can change things to your liking.
 
 <div class="org-src-container">
 <pre class="src src-css"><span style="color: #268bd2;">.theorem </span>{
-        <span style="color: #268bd2;">margin-top</span>: 1em;
-        <span style="color: #268bd2;">display</span>: block;
-    <span style="color: #268bd2;">font-style</span>:normal;
-        <span style="color: #268bd2;">border</span>: 1px solid black;
-        <span style="color: #268bd2;">border-radius</span>: 5px;
-        <span style="color: #268bd2;">padding-top</span>: 10px;
-        <span style="color: #268bd2;">padding-right</span>: 10px;
-        <span style="color: #268bd2;">padding-bottom</span>: 10px;
-        <span style="color: #268bd2;">padding-left</span>: 10px;
+        <span style="color: #859900; font-weight: bold;">margin-top</span>: 1em;
+        <span style="color: #859900; font-weight: bold;">display</span>: block;
+    <span style="color: #859900; font-weight: bold;">font-style</span>:normal;
+        <span style="color: #859900; font-weight: bold;">border</span>: 1px solid <span style="color: #ffffff; background-color: #000000;">black</span>;
+        <span style="color: #859900; font-weight: bold;">border-radius</span>: 5px;
+        <span style="color: #859900; font-weight: bold;">padding-top</span>: 10px;
+        <span style="color: #859900; font-weight: bold;">padding-right</span>: 10px;
+        <span style="color: #859900; font-weight: bold;">padding-bottom</span>: 10px;
+        <span style="color: #859900; font-weight: bold;">padding-left</span>: 10px;
 }
 <span style="color: #268bd2;">.theorem:before </span>{
-    <span style="color: #268bd2;">content</span>: <span style="color: #2aa198;">"Theorem. "</span>;
-    <span style="color: #268bd2;">font-weight</span>: bold;
-    <span style="color: #268bd2;">font-style</span>: normal;
+    <span style="color: #859900; font-weight: bold;">content</span>: <span style="color: #2aa198;">"Theorem. "</span>;
+    <span style="color: #859900; font-weight: bold;">font-weight</span>: bold;
+    <span style="color: #859900; font-weight: bold;">font-style</span>: normal;
 }
 <span style="color: #268bd2;">.lemma </span>{
-    <span style="color: #268bd2;">margin-top</span>: 1em;
-        <span style="color: #268bd2;">display</span>: block;
-    <span style="color: #268bd2;">font-style</span>:normal;
-        <span style="color: #268bd2;">border</span>: 1px solid black;
-        <span style="color: #268bd2;">border-radius</span>: 5px;
-        <span style="color: #268bd2;">padding-top</span>: 10px;
-        <span style="color: #268bd2;">padding-right</span>: 10px;
-        <span style="color: #268bd2;">padding-bottom</span>: 10px;
-        <span style="color: #268bd2;">padding-left</span>: 10px;
+    <span style="color: #859900; font-weight: bold;">margin-top</span>: 1em;
+        <span style="color: #859900; font-weight: bold;">display</span>: block;
+    <span style="color: #859900; font-weight: bold;">font-style</span>:normal;
+        <span style="color: #859900; font-weight: bold;">border</span>: 1px solid <span style="color: #ffffff; background-color: #000000;">black</span>;
+        <span style="color: #859900; font-weight: bold;">border-radius</span>: 5px;
+        <span style="color: #859900; font-weight: bold;">padding-top</span>: 10px;
+        <span style="color: #859900; font-weight: bold;">padding-right</span>: 10px;
+        <span style="color: #859900; font-weight: bold;">padding-bottom</span>: 10px;
+        <span style="color: #859900; font-weight: bold;">padding-left</span>: 10px;
 }
 <span style="color: #268bd2;">.lemma:before </span>{
-    <span style="color: #268bd2;">content</span>: <span style="color: #2aa198;">"Lemma. "</span>;
-    <span style="color: #268bd2;">font-weight</span>: bold;
-    <span style="color: #268bd2;">font-style</span>: normal;
+    <span style="color: #859900; font-weight: bold;">content</span>: <span style="color: #2aa198;">"Lemma. "</span>;
+    <span style="color: #859900; font-weight: bold;">font-weight</span>: bold;
+    <span style="color: #859900; font-weight: bold;">font-style</span>: normal;
 }
 <span style="color: #268bd2;">.proof </span>{
-        <span style="color: #268bd2;">margin-top</span>: 1em;
-    <span style="color: #268bd2;">display</span>: block;
-    <span style="color: #268bd2;">font-style</span>: normal;
-        <span style="color: #268bd2;">margin-bottom</span>: 1em;
-        <span style="color: #268bd2;">border</span>:1px solid black;
-        <span style="color: #268bd2;">border-radius</span>: 5px;
-        <span style="color: #268bd2;">padding-top</span>: 10px;
-        <span style="color: #268bd2;">padding-right</span>: 10px;
-        <span style="color: #268bd2;">padding-bottom</span>: 24px;
-        <span style="color: #268bd2;">padding-left</span>: 10px;
+        <span style="color: #859900; font-weight: bold;">margin-top</span>: 1em;
+    <span style="color: #859900; font-weight: bold;">display</span>: block;
+    <span style="color: #859900; font-weight: bold;">font-style</span>: normal;
+        <span style="color: #859900; font-weight: bold;">margin-bottom</span>: 1em;
+        <span style="color: #859900; font-weight: bold;">border</span>:1px solid <span style="color: #ffffff; background-color: #000000;">black</span>;
+        <span style="color: #859900; font-weight: bold;">border-radius</span>: 5px;
+        <span style="color: #859900; font-weight: bold;">padding-top</span>: 10px;
+        <span style="color: #859900; font-weight: bold;">padding-right</span>: 10px;
+        <span style="color: #859900; font-weight: bold;">padding-bottom</span>: 24px;
+        <span style="color: #859900; font-weight: bold;">padding-left</span>: 10px;
 }
 <span style="color: #268bd2;">.proof:before </span>{
-    <span style="color: #268bd2;">content</span>: <span style="color: #2aa198;">"Proof. "</span>;
-    <span style="color: #268bd2;">font-style</span>: italic;
+    <span style="color: #859900; font-weight: bold;">content</span>: <span style="color: #2aa198;">"Proof. "</span>;
+    <span style="color: #859900; font-weight: bold;">font-style</span>: italic;
 }
 <span style="color: #268bd2;">.proof:after </span>{
-    <span style="color: #268bd2;">content</span>: <span style="color: #2aa198;">"\25FC"</span>;
-    <span style="color: #268bd2;">float</span>:right;
+    <span style="color: #859900; font-weight: bold;">content</span>: <span style="color: #2aa198;">"\25FC"</span>;
+    <span style="color: #859900; font-weight: bold;">float</span>:right;
 }
 <span style="color: #268bd2;">.definition </span>{
-    <span style="color: #268bd2;">margin-top</span>: 1em;
-        <span style="color: #268bd2;">display</span>: block;
-    <span style="color: #268bd2;">font-style</span>:normal;
-        <span style="color: #268bd2;">border</span>: 1px solid black;
-        <span style="color: #268bd2;">border-radius</span>: 5px;
-        <span style="color: #268bd2;">padding-top</span>: 10px;
-        <span style="color: #268bd2;">padding-right</span>: 10px;
-        <span style="color: #268bd2;">padding-bottom</span>: 10px;
-        <span style="color: #268bd2;">padding-left</span>: 10px;
+    <span style="color: #859900; font-weight: bold;">margin-top</span>: 1em;
+        <span style="color: #859900; font-weight: bold;">display</span>: block;
+    <span style="color: #859900; font-weight: bold;">font-style</span>:normal;
+        <span style="color: #859900; font-weight: bold;">border</span>: 1px solid <span style="color: #ffffff; background-color: #000000;">black</span>;
+        <span style="color: #859900; font-weight: bold;">border-radius</span>: 5px;
+        <span style="color: #859900; font-weight: bold;">padding-top</span>: 10px;
+        <span style="color: #859900; font-weight: bold;">padding-right</span>: 10px;
+        <span style="color: #859900; font-weight: bold;">padding-bottom</span>: 10px;
+        <span style="color: #859900; font-weight: bold;">padding-left</span>: 10px;
 }
 <span style="color: #268bd2;">.definition:before </span>{
-    <span style="color: #268bd2;">content</span>: <span style="color: #2aa198;">"Definition. "</span>;
-    <span style="color: #268bd2;">font-weight</span>: bold;
-    <span style="color: #268bd2;">font-style</span>: normal;
+    <span style="color: #859900; font-weight: bold;">content</span>: <span style="color: #2aa198;">"Definition. "</span>;
+    <span style="color: #859900; font-weight: bold;">font-weight</span>: bold;
+    <span style="color: #859900; font-weight: bold;">font-style</span>: normal;
 }
 </pre>
 </div>
@@ -412,7 +412,7 @@ Noticed at the top how I started my theorem with an org-ref label?
 HTML export is not as good as \(\LaTeX\) when it comes to automatic
 numbering and referencing of things like equations, proofs etc.
 but with a little discipline, we can be quite functional. Here, for
-example, I can refer to my theorem as <a href="#Thm-3.1">Thm-3.1</a>.
+example, I can refer to my theorem as ref:Thm-3.1.
 </p>
 
 <p>
@@ -420,7 +420,7 @@ Here is a definition example.
 </p>
 
 <p>
-<div id="Definition-3.1"></div>
+label:Definition-3.1
 </p>
 <div class="definition">
 <p>
@@ -444,6 +444,10 @@ domain and \(\delta\) depends only on  \(\epsilon\).
 <p>
 We also have support for lemmas and that's all for now!
 </p>
+</div>
+<div id="postamble" class="status">
+<p class="date">Created: 2019-06-22 Sat 15:37</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
 </html>

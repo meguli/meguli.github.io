@@ -6,9 +6,8 @@
 <!-- 2019-06-22 Sat 17:12 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Notes on C++ Programming</title>
+<title>&lrm;</title>
 <meta name="generator" content="Org mode" />
-<meta name="author" content="Burak Kaan Copur" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
   .title  { text-align: center;
@@ -180,79 +179,6 @@
   .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
-<link rel="stylesheet" type="text/css" href="../../orgcss/org.css"/>
-
-<script type="text/javascript" src="https://orgmode.org/org-info.js">
-/**
- *
- * @source: https://orgmode.org/org-info.js
- *
- * @licstart  The following is the entire license notice for the
- *  JavaScript code in https://orgmode.org/org-info.js.
- *
- * Copyright (C) 2012-2018 Free Software Foundation, Inc.
- *
- *
- * The JavaScript code in this tag is free software: you can
- * redistribute it and/or modify it under the terms of the GNU
- * General Public License (GNU GPL) as published by the Free Software
- * Foundation, either version 3 of the License, or (at your option)
- * any later version.  The code is distributed WITHOUT ANY WARRANTY;
- * without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
- *
- * As additional permission under GNU GPL version 3 section 7, you
- * may distribute non-source (e.g., minimized or compacted) forms of
- * that code without the copy of the GNU GPL normally required by
- * section 4, provided you include this license notice and a URL
- * through which recipients can access the Corresponding Source.
- *
- * @licend  The above is the entire license notice
- * for the JavaScript code in https://orgmode.org/org-info.js.
- *
- */
-</script>
-
-<script type="text/javascript">
-
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
-
-Copyright (C) 2012-2018 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
-
-<!--/*--><![CDATA[/*><!--*/
-org_html_manager.set("TOC_DEPTH", "4");
-org_html_manager.set("LINK_HOME", "");
-org_html_manager.set("LINK_UP", "");
-org_html_manager.set("LOCAL_TOC", "0");
-org_html_manager.set("VIEW_BUTTONS", "0");
-org_html_manager.set("MOUSE_HINT", "underline");
-org_html_manager.set("FIXED_TOC", "0");
-org_html_manager.set("TOC", "1");
-org_html_manager.set("VIEW", "info");
-org_html_manager.setup();  // activate after the parameters are set
-/*]]>*///-->
-</script>
 <script type="text/javascript">
 /*
 @licstart  The following is the entire license notice for the
@@ -302,34 +228,51 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title">Notes on C++ Programming</h1>
-<div id="table-of-contents">
-<h2>Table of Contents</h2>
-<div id="text-table-of-contents">
-<ul>
-<li><a href="#org0983600">1. Addresses, Values and Types</a></li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-org0983600" class="outline-2">
-<h2 id="org0983600"><span class="section-number-2">1</span> Addresses, Values and Types</h2>
-<div class="outline-text-2" id="text-1">
 <p>
-In C++, an <b>object</b> is a region of memory. Since we can consider memory as an array
-of bytes, an object is a subarray in this memory. An object has:
+On an org file belonging to my project, I just execute <i>M-x org-publish-all</i> and
+HTML output, which is the one I care, appears in my <i>~/public<sub>html</sub></i> directory.
+Of course, to make this work, I have to add following to my <i>.emacs</i> file
 </p>
 
-<ul class="org-ul">
-<li>an <b>address</b> pointing to its initial byte</li>
-<li>some content, 1s and 0s living in this region of memory, which is object's <b>value</b></li>
-<li>and a <b>type</b> which tells us how to interpret and use the value of the object</li>
-</ul>
+<div class="org-src-container">
+<pre class="src src-elisp">(<span style="color: #859900; font-weight: bold;">require</span> '<span style="color: #268bd2; font-weight: bold;">ox-publish</span>)
+(<span style="color: #859900; font-weight: bold;">setq</span> org-publish-project-alist
+      '(
+                (<span style="color: #2aa198;">"org-notes"</span>
+                        <span style="color: #839496; font-weight: bold;">:base-directory</span> <span style="color: #2aa198;">"~/org/"</span>
+                        <span style="color: #839496; font-weight: bold;">:base-extension</span> <span style="color: #2aa198;">"org"</span>
+                        <span style="color: #839496; font-weight: bold;">:publishing-directory</span> <span style="color: #2aa198;">"~/public_html/"</span>
+                        <span style="color: #839496; font-weight: bold;">:recursive</span> t
+                        <span style="color: #839496; font-weight: bold;">:publishing-function</span> org-html-publish-to-html
+                        <span style="color: #839496; font-weight: bold;">:headline-levels</span> 4             <span style="color: #586e75;">; </span><span style="color: #586e75;">Just the default for this project.</span>
+                        <span style="color: #839496; font-weight: bold;">:auto-preamble</span> t
+                )
+                (<span style="color: #2aa198;">"org-static"</span>
+                        <span style="color: #839496; font-weight: bold;">:base-directory</span> <span style="color: #2aa198;">"~/org/"</span>
+                        <span style="color: #839496; font-weight: bold;">:base-extension</span> <span style="color: #2aa198;">"css</span><span style="color: #859900; font-weight: bold;">\\</span><span style="color: #b58900; font-weight: bold;">|</span><span style="color: #2aa198;">js</span><span style="color: #859900; font-weight: bold;">\\</span><span style="color: #b58900; font-weight: bold;">|</span><span style="color: #2aa198;">php</span><span style="color: #859900; font-weight: bold;">\\</span><span style="color: #b58900; font-weight: bold;">|</span><span style="color: #2aa198;">jpg</span><span style="color: #859900; font-weight: bold;">\\</span><span style="color: #b58900; font-weight: bold;">|</span><span style="color: #2aa198;">png"</span>
+                        <span style="color: #839496; font-weight: bold;">:publishing-directory</span> <span style="color: #2aa198;">"~/public_html/"</span>
+                        <span style="color: #839496; font-weight: bold;">:recursive</span> t
+                        <span style="color: #839496; font-weight: bold;">:publishing-function</span> org-publish-attachment
+                )
+                (<span style="color: #2aa198;">"org"</span> <span style="color: #839496; font-weight: bold;">:components</span> (<span style="color: #2aa198;">"org-notes"</span> <span style="color: #2aa198;">"org-static"</span>))
+        ))
+</pre>
 </div>
-</div>
+
+<p>
+In reality, it is also quite easy to also produce LaTeX documents from my org setup.
+Just call <i>M-x org-latex-export-to-pdf</i> and you are good to go. Still, you might have
+to tweak your settings to get the look and feel you want. Mine is heavily focused
+on HTML output.
+</p>
+
+<p>
+Now that all my website lives under <i>~/public<sub>html</sub></i>, it is just a matter of setting
+up a Github pages repo pointing to this directory and pushing to remote as things 
+change.
+</p>
 </div>
 <div id="postamble" class="status">
-<p class="author">Author: Burak Kaan Copur</p>
 <p class="date">Created: 2019-06-22 Sat 17:12</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>

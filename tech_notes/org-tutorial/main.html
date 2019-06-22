@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-06-22 Sat 16:38 -->
+<!-- 2019-06-22 Sat 17:01 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>How I Use Emacs org-mode</title>
@@ -506,7 +506,7 @@ for this and it is actually really easy with org-mode.
 </p>
 
 <p>
-label:Eq-1.1
+<div id="Eq-1.1"></div>
 </p>
 \begin{align}
 \mathcal{F}(a) &= \frac{1}{2\pi i}\oint_\gamma \frac{f(z)}{z - a}\,dz\\
@@ -602,17 +602,17 @@ like the one below
 <p>
 Another important thing is being able to cite other people's work
 and we need to install an emacs package called <i>org-ref</i> to achieve
-this. org-ref will let us achieve more than just citations. It is
-also useful in referencing the parts of our documents like the equation
-above.
+this and require it in or .emacs file.  org-ref will let us achieve more
+than just citations. It is also useful in referencing the parts of our documents 
+like the equation above.
 </p>
 
 <p>
-Now we can cite like cite:Shifrin2004. 
+Now we can cite like <a class='org-ref-reference' href="#Shifrin2004">Shifrin2004</a>. 
 </p>
 
 <p>
-Note that I can recall and refer to a past equation as ref:Eq-1.1.
+Note that I can recall and refer to a past equation as <a href="#Eq-1.1">Eq-1.1</a>.
 And we can put labels and refs to any part of the text. Here is the
 part in the file where we does this.
 </p>
@@ -630,7 +630,9 @@ exports. You can look into that if you are interested.
 </p>
 
 <p>
-bibliography:refs.bib
+<h1 class='org-ref-bib-h1'>Bibliography</h1>
+<ul class='org-ref-bib'><li><a id="Shifrin2004">[Shifrin2004]</a> <a name="Shifrin2004"></a>Theodore Shifrin, Multivariable Mathematics: Linear Algebra, Multivariable Calculus, and Manifolds, Wiley (2004).</li>
+</ul>
 </p>
 </div>
 </div>
@@ -645,7 +647,7 @@ book.
 </p>
 
 <p>
-label:Thm-3.1
+<div id="Thm-3.1"></div>
 </p>
 <div class="theorem">
 <p>
@@ -669,7 +671,7 @@ I will explain it.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-org">label:Thm-3.1
+<pre class="src src-org"><span style="color: #8b008b; text-decoration: underline;"><a href="label:Thm-3.1">label:Thm-3.1</a></span>
 <span style="color: #586e75; font-style: italic; text-decoration: underline;">#+BEGIN_theorem</span>
 If an integer $n$ is greater than 2, then the equation $a^n + b^n = c^n$
 has no solutions in non-zero integers $a$, $b$, and $c$. 
@@ -800,7 +802,7 @@ Noticed at the top how I started my theorem with an org-ref label?
 HTML export is not as good as \(\LaTeX\) when it comes to automatic
 numbering and referencing of things like equations, proofs etc.
 but with a little discipline, we can be quite functional. Here, for
-example, I can refer to my theorem as ref:Thm-3.1.
+example, I can refer to my theorem as <a href="#Thm-3.1">Thm-3.1</a>.
 </p>
 
 <p>
@@ -808,7 +810,7 @@ Here is a definition example.
 </p>
 
 <p>
-label:Definition-3.1
+<div id="Definition-3.1"></div>
 </p>
 <div class="definition">
 <p>
@@ -841,7 +843,7 @@ We also have support for lemmas and that's all for now!
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Burak Kaan Copur</p>
-<p class="date">Created: 2019-06-22 Sat 16:38</p>
+<p class="date">Created: 2019-06-22 Sat 17:01</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

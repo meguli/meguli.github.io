@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-08-27 Tue 06:10 -->
+<!-- 2019-08-27 Tue 06:47 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
@@ -225,6 +225,28 @@ for the JavaScript code in this tag.
  }
 /*]]>*///-->
 </script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="content">
@@ -280,13 +302,23 @@ The Glassbead Game, Herman Hesse
 <p>
 Basically, we organize things in a way that "epigraph" HTML class will be filled with <i>blockquote</i> HTML tags.
 Our modified <i>tufte-css</i> file will handle the rest for us. Other strong feature of Tufte documents are
-margin notes. On the left, you should see a margin note about Fundamental Theorem of Calculus. <a href="#mn-1">mn-1</a>
+margin notes. On the left, you should see a margin note about Fundamental Theorem of Calculus.
 </p>
 
 <p>
-<div id="mn-1"></div>
 <span class="marginnote">Please devote some time to understanding Fundamental Theorem, as it occurs everywhere in 
 higher calculus, in different forms.</span>
+</p>
+
+<p>
+[[<span class=":marginnote"></span>][#+BEGIN<sub>SRC</sub> cpp
+#include &lt;cstdio&gt;
+</p>
+
+<p>
+int main() {
+    std::printf("%s\n", "hello, world!");
+}#+END<sub>SRC</sub>]]
 </p>
 
 <p>
@@ -335,7 +367,7 @@ It is a little bit hard, but managable.
 </p>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2019-08-27 Tue 06:10</p>
+<p class="date">Created: 2019-08-27 Tue 06:47</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

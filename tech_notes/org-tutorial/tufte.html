@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-08-27 Tue 06:54 -->
+<!-- 2019-08-27 Tue 06:59 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
@@ -288,46 +288,50 @@ margin notes. On the left, you should see a margin note about Fundamental Theore
 higher calculus, in different forms.</span>
 </p>
 
+<div class="marginnote">
 <div class="org-src-container">
-<pre class="src src-cpp">[[span:marginnote][
-<span style="color: #268bd2;">#include</span> <span style="color: #2aa198;">&lt;cstdio&gt;</span>
+<pre class="src src-cpp"><span style="color: #268bd2;">#include</span> <span style="color: #2aa198;">&lt;cstdio&gt;</span>
 
-<span style="color: #b58900;">int</span> main() {
+<span style="color: #b58900;">int</span> <span style="color: #268bd2;">main</span>() {
     <span style="color: #268bd2; font-weight: bold;">std</span>::printf(<span style="color: #2aa198;">"%s\n"</span>, <span style="color: #2aa198;">"hello, world!"</span>);
-}]]
-#+END_SRC]]
-
-The way to add <span style="color: #859900; font-weight: bold;">this</span>, is a little <span style="color: #b58900;">bit</span> <span style="color: #268bd2;">hard</span>. /tufte-css/ expects these margin notes, side <span style="color: #b58900;">notes</span> <span style="color: #268bd2;">in</span> /span/
-HTML tags, with different <span style="color: #b58900;">classes</span> <span style="color: #268bd2;">like</span> /marginnote/. To be able to create such span environments, we need
-to add following <span style="color: #b58900;">to</span> <span style="color: #268bd2;">our</span> /.emacs/ file.
-
-#+BEGIN_SRC 
-(<span style="color: #b58900;">defun</span> <span style="color: #268bd2;">jw</span>/html-escape-attribute (value)
-  <span style="color: #2aa198;">"Entity-escape VALUE and wrap it in quotes."</span>
-  ;; <span style="color: #268bd2; font-weight: bold;">http</span>:<span style="color: #586e75;">//</span><span style="color: #586e75;">www.w3.org/TR/2009/WD-html5-20090212/serializing-html-fragments.html</span>
-  ;;
-  ;; <span style="color: #cb4b16; font-weight: bold;">"</span><span style="color: #2aa198;">Escaping a string... consists of replacing any occurrences of</span>
-<span style="color: #2aa198;">  ;; the "</span>&amp;<span style="color: #2aa198;">" character by the string "</span>&amp;amp;<span style="color: #cb4b16; font-weight: bold;">"</span><span style="color: #2aa198;">, any occurrences of the</span>
-<span style="color: #2aa198;">  ;; U+00A0 NO-BREAK SPACE character by the string "</span>&amp;nbsp;<span style="color: #cb4b16; font-weight: bold;">"</span><span style="color: #2aa198;">, and, if</span>
-<span style="color: #2aa198;">  ;; the algorithm was invoked in the attribute mode, any occurrences</span>
-<span style="color: #2aa198;">  ;; of the """</span> character by the string <span style="color: #2aa198;">"&amp;quot;"</span>...<span style="color: #cb4b16; font-weight: bold;">"</span>
-<span style="color: #2aa198;">  (let* ((value (replace-regexp-in-string "</span>&amp;<span style="color: #2aa198;">" "</span>&amp;amp;<span style="color: #cb4b16; font-weight: bold;">"</span><span style="color: #2aa198;"> value))</span>
-<span style="color: #2aa198;">         (value (replace-regexp-in-string "</span>\u00a0<span style="color: #2aa198;">" "</span>&amp;nbsp;<span style="color: #cb4b16; font-weight: bold;">"</span><span style="color: #2aa198;"> value))</span>
-<span style="color: #2aa198;">         (value (replace-regexp-in-string "</span>\"<span style="color: #2aa198;">" "</span>&amp;quot;<span style="color: #cb4b16; font-weight: bold;">"</span><span style="color: #2aa198;"> value)))</span>
-<span style="color: #2aa198;">    value))</span>
-
-
-<span style="color: #2aa198;">(eval-after-load "</span>org<span style="color: #cb4b16; font-weight: bold;">"</span>
-<span style="color: #2aa198;">  '(org-add-link-type</span>
-<span style="color: #2aa198;">    "</span>span<span style="color: #cb4b16; font-weight: bold;">"</span><span style="color: #2aa198;"> #'ignore ; not an 'openable' link</span>
-<span style="color: #2aa198;">    #'(lambda (class desc format)</span>
-<span style="color: #2aa198;">        (pcase format</span>
-<span style="color: #2aa198;">          (`html (format "</span>&lt;span <span style="color: #859900; font-weight: bold;">class</span>=\"%s\"&gt;%<span style="color: #b58900;">s</span>&lt;/span&gt;<span style="color: #cb4b16; font-weight: bold;">"</span>
-<span style="color: #2aa198;">                         (jw/html-escape-attribute class)</span>
-<span style="color: #2aa198;">                         (or desc "")))</span>
-<span style="color: #2aa198;">          (_ (or desc ""))))))</span>
+}
 </pre>
 </div>
+
+</div>
+
+<p>
+The way to add this, is a little bit hard. <i>tufte-css</i> expects these margin notes, side notes in <i>span</i>
+HTML tags, with different classes like <i>marginnote</i>. To be able to create such span environments, we need
+to add following to our <i>.emacs</i> file.
+</p>
+
+<pre class="example">
+(defun jw/html-escape-attribute (value)
+  "Entity-escape VALUE and wrap it in quotes."
+  ;; http://www.w3.org/TR/2009/WD-html5-20090212/serializing-html-fragments.html
+  ;;
+  ;; "Escaping a string... consists of replacing any occurrences of
+  ;; the "&amp;" character by the string "&amp;amp;", any occurrences of the
+  ;; U+00A0 NO-BREAK SPACE character by the string "&amp;nbsp;", and, if
+  ;; the algorithm was invoked in the attribute mode, any occurrences
+  ;; of the """ character by the string "&amp;quot;"..."
+  (let* ((value (replace-regexp-in-string "&amp;" "&amp;amp;" value))
+	 (value (replace-regexp-in-string "\u00a0" "&amp;nbsp;" value))
+	 (value (replace-regexp-in-string "\"" "&amp;quot;" value)))
+    value))
+
+
+(eval-after-load "org"
+  '(org-add-link-type
+    "span" #'ignore ; not an 'openable' link
+    #'(lambda (class desc format)
+	(pcase format
+	  (`html (format "&lt;span class=\"%s\"&gt;%s&lt;/span&gt;"
+			 (jw/html-escape-attribute class)
+			 (or desc "")))
+	  (_ (or desc ""))))))
+</pre>
 
 <p>
 and you can add margin notes now like
@@ -342,7 +346,7 @@ It is a little bit hard, but managable.
 </p>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2019-08-27 Tue 06:54</p>
+<p class="date">Created: 2019-08-27 Tue 06:59</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-08-27 Tue 05:43 -->
+<!-- 2019-08-27 Tue 06:09 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>How I Use Emacs org-mode</title>
@@ -892,7 +892,59 @@ The Glassbead Game, Herman Hesse
 
 <p>
 Basically, we organize things in a way that "epigraph" HTML class will be filled with <i>blockquote</i> HTML tags.
-Our modified <i>tufte-css</i> file will handle the rest for us. 
+Our modified <i>tufte-css</i> file will handle the rest for us. Other strong feature of Tufte documents are
+margin notes. On the left, you should see a margin note about Fundamental Theorem of Calculus. <a href="#mn-1">mn-1</a>
+</p>
+
+<p>
+<div id="mn-1"></div>
+<span class="marginnote">Please devote some time to understanding Fundamental Theorem, as it occurs everywhere in 
+higher calculus, in different forms.</span>
+</p>
+
+<p>
+The way to add this, is a little bit hard. <i>tufte-css</i> expects these margin notes, side notes in <i>span</i>
+HTML tags, with different classes like <i>marginnote</i>. To be able to create such span environments, we need
+to add following to our <i>.emacs</i> file.
+</p>
+
+<pre class="example">
+(defun jw/html-escape-attribute (value)
+  "Entity-escape VALUE and wrap it in quotes."
+  ;; http://www.w3.org/TR/2009/WD-html5-20090212/serializing-html-fragments.html
+  ;;
+  ;; "Escaping a string... consists of replacing any occurrences of
+  ;; the "&amp;" character by the string "&amp;amp;", any occurrences of the
+  ;; U+00A0 NO-BREAK SPACE character by the string "&amp;nbsp;", and, if
+  ;; the algorithm was invoked in the attribute mode, any occurrences
+  ;; of the """ character by the string "&amp;quot;"..."
+  (let* ((value (replace-regexp-in-string "&amp;" "&amp;amp;" value))
+	 (value (replace-regexp-in-string "\u00a0" "&amp;nbsp;" value))
+	 (value (replace-regexp-in-string "\"" "&amp;quot;" value)))
+    value))
+
+
+(eval-after-load "org"
+  '(org-add-link-type
+    "span" #'ignore ; not an 'openable' link
+    #'(lambda (class desc format)
+	(pcase format
+	  (`html (format "&lt;span class=\"%s\"&gt;%s&lt;/span&gt;"
+			 (jw/html-escape-attribute class)
+			 (or desc "")))
+	  (_ (or desc ""))))))
+</pre>
+
+<p>
+and you can add margin notes now like
+</p>
+
+<pre class="example">
+[[span:marginnote][your_note]].
+</pre>
+
+<p>
+It is a little bit hard, but managable.
 </p>
 </div>
 </div>
@@ -947,7 +999,7 @@ change.
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Burak Kaan Copur</p>
-<p class="date">Created: 2019-08-27 Tue 05:43</p>
+<p class="date">Created: 2019-08-27 Tue 06:09</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

@@ -299,6 +299,11 @@ blockquote .marginnote {
     text-align: left; 
 }
 
+p .sidenote,
+p .marginnote {
+    font-size: 1em;
+}
+
 div.fullwidth,
 table.fullwidth {
     width: 100%; 

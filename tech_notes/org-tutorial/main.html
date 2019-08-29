@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-08-29 Thu 18:29 -->
+<!-- 2019-08-29 Thu 18:45 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>How I Use Emacs org-mode</title>
@@ -529,7 +529,7 @@ Another thing is to adding figures and images.
 </p>
 
 
-<div id="orge11be07" class="figure">
+<div id="orgf392f62" class="figure">
 <p><img src="./img/maxwell.jpg" alt="maxwell.jpg" /> 
 </p>
 <p><span class="figure-number">Figure 1: </span>Demo Picture with Caption</p>
@@ -548,7 +548,7 @@ and this is how to add it
 <p>
 I put all my images under <i>./img</i> directory relative to the project
 I am working on. We can refer to this image in any place of the
-text using <a href="#orge11be07">a link</a> by saying
+text using <a href="#orgf392f62">a link</a> by saying
 </p>
 
 <pre class="example">
@@ -844,7 +844,8 @@ We also have support for lemmas and that's all for now!
 <div class="epigraph">
 <blockquote>
 <p>
-Begin at the beginning, the King said, very gravely, and go on till you come to the end: then stop.
+Begin at the beginning, the King said, very gravely, and go on till you come 
+to the end: then stop.
 </p>
 
 <p>
@@ -854,9 +855,10 @@ Alices Adventures in Wonderland, Lewis Carroll
 
 <blockquote>
 <p>
-There is truth, my boy. But the doctrine you desire, absolute perfect dogma that alone provides wisdom, 
-does not exist. Nor should you long for a perfect doctrine, my friend rather, you should long for perfection 
-in yourself. The deity is within you, not in ideas and books. Truth is lived not taught.
+There is truth, my boy. But the doctrine you desire, absolute perfect dogma 
+that alone provides wisdom, does not exist. Nor should you long for a perfect 
+doctrine, my friend rather, you should long for perfection in yourself. The 
+deity is within you, not in ideas and books. Truth is lived not taught.
 </p>
 
 <p>
@@ -867,23 +869,26 @@ The Glassbead Game, Herman Hesse
 </div>
 
 <p>
-<i>tufte-css</i> is the CSS part of the Edward Tufte inspired typesetting efforts, you can find their demo
-easily on the web. We are going to use parts of it in our documents. In fact, epigraph above is an
-example of it. Here is how we embed it.
+<i>tufte-css</i> is the CSS part of the Edward Tufte inspired typesetting efforts, 
+you can find their demo easily on the web. We are going to use parts of it in 
+our documents. In fact, epigraph above is an example of it. Here is how we 
+embed it.
 </p>
 
 <pre class="example">
 #+BEGIN_epigraph 
 #+BEGIN_QUOTE
-Begin at the beginning, the King said, very gravely, and go on till you come to the end: then stop.
+Begin at the beginning, the King said, very gravely, and go on till you come 
+to the end: then stop.
 
 Alices Adventures in Wonderland, Lewis Carroll
 #+END_QUOTE
 
 #+BEGIN_QUOTE
-There is truth, my boy. But the doctrine you desire, absolute perfect dogma that alone provides wisdom, 
-does not exist. Nor should you long for a perfect doctrine, my friend rather, you should long for perfection 
-in yourself. The deity is within you, not in ideas and books. Truth is lived not taught.
+There is truth, my boy. But the doctrine you desire, absolute perfect dogma 
+that alone provides wisdom, does not exist. Nor should you long for a perfect 
+doctrine, my friend rather, you should long for perfection in yourself. The 
+deity is within you, not in ideas and books. Truth is lived not taught.
 
 The Glassbead Game, Herman Hesse
 #+END_QUOTE
@@ -891,9 +896,10 @@ The Glassbead Game, Herman Hesse
 </pre>
 
 <p>
-Basically, we organize things in a way that "epigraph" HTML class will be filled with <i>blockquote</i> HTML tags.
-Our modified <i>tufte-css</i> file will handle the rest for us. Other strong feature of Tufte documents are
-margin notes. On the left, you should see a margin note about <i>Fundamental Theorem of Calculus.</i>
+Basically, we organize things in a way that "epigraph" HTML class will be filled 
+with <i>blockquote</i> HTML tags. Our modified <i>tufte-css</i> file will handle the rest 
+for us. Other strong feature of Tufte documents are margin notes. On the left, 
+you should see a margin note about <i>Fundamental Theorem of Calculus.</i>
 </p>
 
 <div class="marginnote">
@@ -916,7 +922,7 @@ and indeed, Maxwell's equations are a miracle of higher calculus.
 </p>
 
 
-<div id="orgf963fdf" class="figure">
+<div id="org6c7a43c" class="figure">
 <p><img src="./img/maxwell.jpg" alt="maxwell.jpg" />
 </p>
 <p><span class="figure-number">Figure 2: </span>Demo Picture with Caption</p>
@@ -944,15 +950,40 @@ int main() {
 and indeed, Maxwell's equations are a miracle of higher calculus.
 
 #+LABEL: fig:maxwell
-#+CAPTION: Demo Picture with Caption
+#+CAPTION: James Clark Maxwell
 [[file:./img/maxwell.jpg]]
 #+END_marginnote
 </pre>
 
 <p>
 and note that you can add source code, latex, figures etc. into your marginnotes
-just by nesting environments. 
+just by nesting environments. Since it is too important to use screen space, 
+including margins, effectively in Tufte's style, we have another method of adding
+a figure called <i>fullwidth</i> figure. This spans the entire screen. Below you can
+see a fullwidth figure;
 </p>
+
+<div class="fullwidth">
+
+<div id="org4184c5e" class="figure">
+<p><img src="./img/tufte-full.png" alt="tufte-full.png" />
+</p>
+<p><span class="figure-number">Figure 3: </span>A full width data table</p>
+</div>
+
+</div>
+
+<p>
+and to add this, as you can guess by now, we do;
+</p>
+
+<pre class="example">
+#+BEGIN_fullwidth
+#+LABEL: fig:fullwidth
+#+CAPTION: A full width data table
+[[file:./img/tufte-full.png]]
+#+END_fullwidth
+</pre>
 </div>
 </div>
 <div id="outline-container-org3fbc01f" class="outline-2">
@@ -1006,7 +1037,7 @@ change.
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Burak Kaan Copur</p>
-<p class="date">Created: 2019-08-29 Thu 18:29</p>
+<p class="date">Created: 2019-08-29 Thu 18:45</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

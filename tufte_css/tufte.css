@@ -312,6 +312,10 @@ table.fullwidth {
 	max-width: 184%;
 }
 
+.fullwidth .figure p {
+	text-align: right;
+}
+
 div.table-wrapper {
     overflow-x: auto;
     font-family: "Trebuchet MS", "Gill Sans", "Gill Sans MT", sans-serif; 

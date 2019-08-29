@@ -38,11 +38,12 @@
 /* Tufte CSS styles */
 html {
     font-size: 15px; 
+	margin-right: 8em;
 }
 
 body {
-    width: 60%;
-    margin-left: 8em;
+    width: 56%;
+    margin-left: 6em;
     margin-right: auto;
     padding-left: 12.5%;
     font-family: et-book, Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
@@ -256,8 +257,8 @@ img {
 .marginnote {
     float: right;
     clear: right;
-    margin-right: -44%;
-    width: 40%;
+    margin-right: -62%;
+    width: 52%;
     margin-top: 0;
     margin-bottom: 0;
     font-size: 1.1rem;

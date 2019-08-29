@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-08-27 Tue 06:59 -->
+<!-- 2019-08-29 Thu 18:24 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
@@ -254,7 +254,7 @@ The Glassbead Game, Herman Hesse
 </div>
 
 <p>
-Tufte-css is the CSS part of the Edward Tufte inspired typesetting efforts, you can find their demo
+<i>tufte-css</i> is the CSS part of the Edward Tufte inspired typesetting efforts, you can find their demo
 easily on the web. We are going to use parts of it in our documents. In fact, epigraph above is an
 example of it. Here is how we embed it.
 </p>
@@ -280,15 +280,15 @@ The Glassbead Game, Herman Hesse
 <p>
 Basically, we organize things in a way that "epigraph" HTML class will be filled with <i>blockquote</i> HTML tags.
 Our modified <i>tufte-css</i> file will handle the rest for us. Other strong feature of Tufte documents are
-margin notes. On the left, you should see a margin note about Fundamental Theorem of Calculus.
-</p>
-
-<p>
-<span class="marginnote">Please devote some time to understanding Fundamental Theorem, as it occurs everywhere in 
-higher calculus, in different forms.</span>
+margin notes. On the left, you should see a margin note about <i>Fundamental Theorem of Calculus.</i>
 </p>
 
 <div class="marginnote">
+<p>
+Please devote some time into understanding Fundamental Theorem as it occurs in
+many places throughout higher calculus, in different forms.
+</p>
+
 <div class="org-src-container">
 <pre class="src src-cpp"><span style="color: #268bd2;">#include</span> <span style="color: #2aa198;">&lt;cstdio&gt;</span>
 
@@ -298,55 +298,51 @@ higher calculus, in different forms.</span>
 </pre>
 </div>
 
+<p>
+and indeed, Maxwell's equations are a miracle of higher calculus.
+</p>
+
+
+<div id="org2240429" class="figure">
+<p><img src="./img/maxwell.jpg" alt="maxwell.jpg" />
+</p>
+<p><span class="figure-number">Figure 1: </span>Demo Picture with Caption</p>
+</div>
+
 </div>
 
 <p>
-The way to add this, is a little bit hard. <i>tufte-css</i> expects these margin notes, side notes in <i>span</i>
-HTML tags, with different classes like <i>marginnote</i>. To be able to create such span environments, we need
-to add following to our <i>.emacs</i> file.
+The way to add this again similar to other custom <i>begin - end</i> environments.
 </p>
 
 <pre class="example">
-(defun jw/html-escape-attribute (value)
-  "Entity-escape VALUE and wrap it in quotes."
-  ;; http://www.w3.org/TR/2009/WD-html5-20090212/serializing-html-fragments.html
-  ;;
-  ;; "Escaping a string... consists of replacing any occurrences of
-  ;; the "&amp;" character by the string "&amp;amp;", any occurrences of the
-  ;; U+00A0 NO-BREAK SPACE character by the string "&amp;nbsp;", and, if
-  ;; the algorithm was invoked in the attribute mode, any occurrences
-  ;; of the """ character by the string "&amp;quot;"..."
-  (let* ((value (replace-regexp-in-string "&amp;" "&amp;amp;" value))
-	 (value (replace-regexp-in-string "\u00a0" "&amp;nbsp;" value))
-	 (value (replace-regexp-in-string "\"" "&amp;quot;" value)))
-    value))
+#+BEGIN_marginnote
+Please devote some time into understanding Fundamental Theorem as it occurs in
+many places throughout higher calculus, in different forms.
 
+#+BEGIN_SRC cpp
+#include &lt;cstdio&gt;
 
-(eval-after-load "org"
-  '(org-add-link-type
-    "span" #'ignore ; not an 'openable' link
-    #'(lambda (class desc format)
-	(pcase format
-	  (`html (format "&lt;span class=\"%s\"&gt;%s&lt;/span&gt;"
-			 (jw/html-escape-attribute class)
-			 (or desc "")))
-	  (_ (or desc ""))))))
+int main() {
+    std::printf("%s\n", "hello, world!");
+}
+#+END_SRC
+
+and indeed, Maxwell's equations are a miracle of higher calculus.
+
+#+LABEL: fig:maxwell
+#+CAPTION: Demo Picture with Caption
+[[file:./img/maxwell.jpg]]
+#+END_marginnote
 </pre>
 
 <p>
-and you can add margin notes now like
-</p>
-
-<pre class="example">
-[[span:marginnote][your_note]].
-</pre>
-
-<p>
-It is a little bit hard, but managable.
+and note that you can add source code, latex, figures etc. into your marginnotes
+just by nesting environments. 
 </p>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2019-08-27 Tue 06:59</p>
+<p class="date">Created: 2019-08-29 Thu 18:24</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

@@ -303,6 +303,10 @@ blockquote .marginnote {
     font-size: 1em;
 }
 
+.marginnote ul {
+    font-size: 1.0rem;
+}
+
 div.fullwidth,
 table.fullwidth {
     width: 100%; 
